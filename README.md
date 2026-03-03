@@ -1,7 +1,5 @@
 # Hedonometer-Grp-Project
 
-1.1 Loading the file
-
 2. Dataset and data dictionary
 
 1.1 Loading the file
@@ -35,6 +33,7 @@ Regarding data quality, there are no duplicates and the word format (spacing, lo
 
 Most of the top ten 'happiness' words are unarguably ones we would expect. Interestingly, laughter tops the word happiness itself, perhaps because of it being an act embodying the feeling, affording us to give it a material reality. 
 The least happiness containing words are connotated with death, which has its own happiness score. Interestingly, suicide ranks higher in negativity than other forms/directions of killing. Personally, I also understand that rape is ranked to be more negative than acts of killing due to its gruesome nature.
+
 
 4. Result section
 2.1. Distribution of Happiness Scores.
