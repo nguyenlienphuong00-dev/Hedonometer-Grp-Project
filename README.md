@@ -2,8 +2,9 @@
 
 4. Result section
 2.1. Distribution of Happiness Scores.
-    
-<img width="1000" height="600" alt="scatterplot" src="https://github.com/user-attachments/assets/56a9fc25-1541-44d1-ab04-30512d4472f6" />
+
+<img width="1000" height="600" alt="histogram" src="https://github.com/user-attachments/assets/0bb49420-b830-4d41-80d0-f9345c3e5dc6" />
+
 
 Mean happiness score: 5.38
 Median happiness score: 5.44
@@ -31,7 +32,9 @@ Interpretation:
 
 - The word 'Capitalism' is a political and economic term. It creates a controversial conversation because of the distinction in ideologies among individuals. Depending on the rater's politics, it can refer to wealth, freedom and innovation or greed, poverty and inequality.
 
-- 'Mortality' is chosen to be in the top 5 of contested words in data. For some people, mortality can bring them many benefits such as long life, power and experience. They will give a high score to this word. However, the others link this word with loneliness, death and loss. They think when they become mortal, they have to watch their beloveds die. This leads to a low score. The opposite perspectives creates the contradictory data. 
+- 'Mortality' is chosen to be in the top 5 of contested words in data. For some people, mortality can bring them many benefits such as long life, power and experience. They will give a high score to this word. However, the others link this word with loneliness, death and loss. They think when they become mortal, they have to watch their beloveds die. This leads to a low score. The opposite perspectives creates the contradictory data.
+
+<img width="1000" height="600" alt="scatterplot" src="https://github.com/user-attachments/assets/cef0f72e-f820-45cc-83d3-da9d621c13f6" />
 
 Connecting qualitative interpretation to quantitative pattern:
 
