@@ -3,7 +3,7 @@
 4. Result section
 2.1. Distribution of Happiness Scores.
     
-
+![alt text](image-1.png)
 Mean happiness score: 5.38
 Median happiness score: 5.44
 Standard deviation of happiness score: 1.08
