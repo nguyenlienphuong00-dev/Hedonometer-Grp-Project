@@ -1,5 +1,6 @@
 # Hedonometer-Grp-Project
 1. Dataset and data dictionary
+
 1.1 Loading the file
 We used df_read.csv to read the txt. file into a pandas dataframe.In order to convert all columns into numeric types, we used na_values and listed "--" to be perceived as Not a Number (NaN). In the end we converted te txt. file into a csv with df.to_csv. (Due to a mistaken manipulation of folders in the local, the cleaned csv. dataset was uploaded via the GitHub interface)
    
