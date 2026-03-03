@@ -4,7 +4,7 @@
 2.1. Distribution of Happiness Scores.
 
 <img width="1000" height="600" alt="histogram" src="https://github.com/user-attachments/assets/0bb49420-b830-4d41-80d0-f9345c3e5dc6" />
-
+Figure 4.1 The distribution historgam of Happiness Scores.
 
 Mean happiness score: 5.38
 Median happiness score: 5.44
@@ -35,6 +35,7 @@ Interpretation:
 - 'Mortality' is chosen to be in the top 5 of contested words in data. For some people, mortality can bring them many benefits such as long life, power and experience. They will give a high score to this word. However, the others link this word with loneliness, death and loss. They think when they become mortal, they have to watch their beloveds die. This leads to a low score. The opposite perspectives creates the contradictory data.
 
 <img width="1000" height="600" alt="scatterplot" src="https://github.com/user-attachments/assets/cef0f72e-f820-45cc-83d3-da9d621c13f6" />
+Figure 4.2. The scatterplot of Happiness Scores.  
 
 Connecting qualitative interpretation to quantitative pattern:
 
