@@ -2,9 +2,6 @@ import pandas as pd
 import matplotlib.pyplot as plt # Importing the matplotlib library for plotting and setting the nickname to save typing.
 
 df = pd.read_csv(r'C:\Users\ASUS ZenBook\Desktop\coding-humanities\hedonometer_project\Hedonometer-Grp-Project\data\dataset.txt', sep = '\t', skiprows = 2, na_values = '--')
-print("Dataset loaded successfully!")
-print(df.head())
-# Check if dataset is loaded correctly.
 
 #2.1
 
@@ -47,3 +44,4 @@ plt.ylabel('Standard Deviation of Happiness Score (Disagreement)') #label for y-
 plt.grid(True, linestyle= '--', alpha=0.5) #add a grid to the scatter plot with dashed lines and light transparency for better readability.
 plt.savefig(r'C:\Users\ASUS ZenBook\Desktop\coding-humanities\hedonometer_project\Hedonometer-Grp-Project\figures\happiness_scatter.png') #save the scatter plot as a PNG file in the specified location.
 plt.show() #display the scatter plot.
+
