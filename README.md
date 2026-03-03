@@ -5,7 +5,7 @@
 
 <img width="1000" height="600" alt="histogram" src="https://github.com/user-attachments/assets/0bb49420-b830-4d41-80d0-f9345c3e5dc6" />
 
-Figure 4.1 The distribution historgam of Happiness Scores.
+Figure 4.1 The distribution historgam of Happiness Scores. 
 
 Mean happiness score: 5.38
 Median happiness score: 5.44
