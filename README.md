@@ -1,5 +1,8 @@
 # Hedonometer-Grp-Project
-2.1. Distribution of Happiness Scores. 
+
+4. Result section
+2.1. Distribution of Happiness Scores.
+    
 
 Mean happiness score: 5.38
 Median happiness score: 5.44
