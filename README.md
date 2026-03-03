@@ -3,6 +3,7 @@
 4. Result section
 2.1. Distribution of Happiness Scores.
     
+<img width="1000" height="600" alt="scatterplot" src="https://github.com/user-attachments/assets/56a9fc25-1541-44d1-ab04-30512d4472f6" />
 
 Mean happiness score: 5.38
 Median happiness score: 5.44
