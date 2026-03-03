@@ -4,9 +4,9 @@ df = pd.read_csv("data/raw/Data_Set_S1.txt",
                  delimiter="\t",
                  skiprows=3,
                  na_values= ["--", ""])
-df.to_csv("data/Data_Set_S1.csv", index=False) # index=False doesnt save row numbers as the first column - would move all columns to the right?
+df.to_csv("data/processed/Data_Set_S1.csv", index=False) # index=False doesnt save row numbers as the first column - would move all columns to the right?
 
-df = pd.read_csv("outputs/Data_Set_S1.csv")
+df = pd.read_csv("data//processed/Data_Set_S1.csv")
 print(df.dtypes)
 print(df.info()) #or RangeIndex indicates rows, to confirm print(len(df)) is also possible
 #print(df.describe())
