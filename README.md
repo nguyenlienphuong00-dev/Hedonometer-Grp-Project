@@ -86,3 +86,32 @@ Even though the bar chart shows equal counts, the overlap numbers reveal real di
 
 One example is the word “republicans.” It appears in Twitter’s top 5,000 words but not in Google Books. This likely reflects the immediacy of political discussion on social media. In contrast, Google Books averages language over many decades, where specific contemporary party references are less dominant.
 >>>>>>> 0ad074e55b874320e5f07e459a6c55a3d5f4cc8a
+
+3. Qualitative exploration
+3.1 Word exhibit (20 selected words)
+
+| Word | Category | Explanation |
+|------|----------|-------------|
+| laughter | very positive | associated with joy and social bonding |
+| happiness | very positive | represents a positive emotional state |
+| love | very positive | universal symbol of affection |
+| joy | very positive | expresses strong happiness |
+| smile | very positive | linked to positive emotions |
+| death | very negative | associated with loss and fear |
+| suicide | very negative | connected to tragedy and despair |
+| rape | very negative | represents violence and trauma |
+| killing | very negative | associated with violence |
+| murder | very negative | strongly negative violent act |
+| fucking | highly contested | insult but also positive intensifier |
+| pussy | highly contested | cat vs vulgar slang |
+| whiskey | highly contested | leisure vs alcoholism |
+| capitalism | highly contested | political ideology interpreted differently |
+| mortality | highly contested | philosophical vs negative meaning |
+| republicans | culturaly loaded | political identity word |
+| religion | cultural loaded| faith vs conflict interpretations |
+| money | cultural loaded| wealth vs greed |
+| freedom | cultural loaded| positive but politically contested |
+| power | cultural loaded | authority vs oppression |
+
+3.2 Interpretation
+The selected words highlight that the way people feel about words depends heavily on context and culture. Words such as 'laughter', 'love', and 'joy' have high happiness scores because they are usually connected to positive feelings and social interaction. In contrast, words like 'death', 'suicide' and 'rape' have very low happiness scores since they are related to violence, loss and suffering. However, some words have evry different meanings for different people. Words such as 'fucking', 'pussy' show how the meaning of the word can change depending on the situation and the group of people using it. As an example, 'fucking' can be used as an insult, but it can also be used to strongly emphasize something positive, like in the phrase 'this is fucking amazing'. Political and cultural words such as 'capitalism', 'religion' and 'republicans' can also cause disagreement. People may understand these words in various ways depending on their political views, culture, or personal experiences. This illustartes that the emotional meaning of words is not fixed and can change depending on who is using them and in what context. These observations also match the quatitative results. Wwords with very high or very low happiness scores usually have less disagreement between people. In contrast, highly contested words are often located in the middle of the happiness scale and show higher disgreement. This pattern can also be seen in the scatterplot, where disagreement is highest around neutral happiness scores.
