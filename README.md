@@ -88,6 +88,7 @@ One example is the word “republicans.” It appears in Twitter’s top 5,000 w
 >>>>>>> 0ad074e55b874320e5f07e459a6c55a3d5f4cc8a
 
 3. Qualitative exploration
+
 3.1 Word exhibit (20 selected words)
 
 | Word | Category | Explanation |
@@ -114,4 +115,5 @@ One example is the word “republicans.” It appears in Twitter’s top 5,000 w
 | power | cultural loaded | authority vs oppression |
 
 3.2 Interpretation
+
 The selected words highlight that the way people feel about words depends heavily on context and culture. Words such as 'laughter', 'love', and 'joy' have high happiness scores because they are usually connected to positive feelings and social interaction. In contrast, words like 'death', 'suicide' and 'rape' have very low happiness scores since they are related to violence, loss and suffering. However, some words have evry different meanings for different people. Words such as 'fucking', 'pussy' show how the meaning of the word can change depending on the situation and the group of people using it. As an example, 'fucking' can be used as an insult, but it can also be used to strongly emphasize something positive, like in the phrase 'this is fucking amazing'. Political and cultural words such as 'capitalism', 'religion' and 'republicans' can also cause disagreement. People may understand these words in various ways depending on their political views, culture, or personal experiences. This illustartes that the emotional meaning of words is not fixed and can change depending on who is using them and in what context. These observations also match the quatitative results. Wwords with very high or very low happiness scores usually have less disagreement between people. In contrast, highly contested words are often located in the middle of the happiness scale and show higher disgreement. This pattern can also be seen in the scatterplot, where disagreement is highest around neutral happiness scores.
