@@ -33,6 +33,7 @@ Most of the top ten 'happiness' words are unarguably ones we would expect. Inter
 The least happiness containing words are connotated with death, which has its own happiness score. Interestingly, suicide ranks higher in negativity than other forms/directions of killing. Personally, I also understand that rape is ranked to be more negative than acts of killing due to its gruesome nature.
 
 4. Result section
+   
 2.1. Distribution of Happiness Scores.
 
 <img width="1000" height="600" alt="histogram" src="https://github.com/user-attachments/assets/0bb49420-b830-4d41-80d0-f9345c3e5dc6" />
