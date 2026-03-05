@@ -1,3 +1,4 @@
+
 # Hedonometer-Grp-Project
 
 2. Dataset and data dictionary
@@ -33,6 +34,7 @@ Most of the top ten 'happiness' words are unarguably ones we would expect. Inter
 The least happiness containing words are connotated with death, which has its own happiness score. Interestingly, suicide ranks higher in negativity than other forms/directions of killing. Personally, I also understand that rape is ranked to be more negative than acts of killing due to its gruesome nature.
 
 4. Result section
+   
 2.1. Distribution of Happiness Scores.
 
 <img width="1000" height="600" alt="histogram" src="https://github.com/user-attachments/assets/0bb49420-b830-4d41-80d0-f9345c3e5dc6" />
@@ -49,6 +51,7 @@ Interpretation:
 Looking at the histogram, the happiness scores are slightly above neutral with the highest concentration of words between 5 and 6. The mean which is 5.38 and the median which is 5.44 are close. This shows a symmetric distribution. However, the mean is smaller than the median because it is pulled down by an amount of negative words on the left side of the chart. The left tail is longer than the right one, emphasizing the mild left-skewed distribution. Despite the majority of neutral and positive words, the negative words extend the lower end of the scale. Most of the tallest blue bars are centered between 4.5 and 6.5 scores. Many words in the middle of the bar chart are considered neutral by people. The surprising pattern is that no word gets an absolute score such as 1 or 9. It is interesting that out of numerous words, people were unable to agree on any words that are absolutely positive or negative. 
 
 2.2 Top 5 contested words.
+
                 word  happiness_average  happiness_standard_deviation
 8425         fucking               4.64                        2.9260  
 8019           pussy               4.80                        2.6650
@@ -139,3 +142,4 @@ Quynh Nguyên: 2.1, 2.2
 Ran Kim: 2.3
 Seo Yeon Kim: 3
 Mila Clausen: 4.1, 4.2, 4.3
+ (Add qualitative exploration section)
