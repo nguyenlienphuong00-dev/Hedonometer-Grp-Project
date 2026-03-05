@@ -1,3 +1,4 @@
+
 # Hedonometer-Grp-Project
 
 2. Dataset and data dictionary
@@ -141,3 +142,4 @@ Quynh Nguyên: 2.1, 2.2
 Ran Kim: 2.3
 Seo Yeon Kim: 3
 Mila Clausen: 4.1, 4.2, 4.3
+ (Add qualitative exploration section)
