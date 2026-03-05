@@ -35,7 +35,7 @@ The least happiness containing words are connotated with death, which has its ow
 
 4. Result section
    
-2.1. Distribution of Happiness Scores.
+4.1. Distribution of Happiness Scores.
 
 <img width="1000" height="600" alt="histogram" src="https://github.com/user-attachments/assets/0bb49420-b830-4d41-80d0-f9345c3e5dc6" />
 
@@ -50,7 +50,7 @@ Standard deviation of happiness score: 1.08
 Interpretation: 
 Looking at the histogram, the happiness scores are slightly above neutral with the highest concentration of words between 5 and 6. The mean which is 5.38 and the median which is 5.44 are close. This shows a symmetric distribution. However, the mean is smaller than the median because it is pulled down by an amount of negative words on the left side of the chart. The left tail is longer than the right one, emphasizing the mild left-skewed distribution. Despite the majority of neutral and positive words, the negative words extend the lower end of the scale. Most of the tallest blue bars are centered between 4.5 and 6.5 scores. Many words in the middle of the bar chart are considered neutral by people. The surprising pattern is that no word gets an absolute score such as 1 or 9. It is interesting that out of numerous words, people were unable to agree on any words that are absolutely positive or negative. 
 
-2.2 Top 5 contested words.
+4.2 Top 5 contested words.
 
                 word  happiness_average  happiness_standard_deviation
 8425         fucking               4.64                        2.9260  
@@ -78,7 +78,7 @@ Connecting qualitative interpretation to quantitative pattern:
 
 In the scatterplot, a fascinating pattern emerges. The words with the highest standard deviation scores have average happiness scores centering in the middle of bar chart. The scatterplot shows that the highest dots are clustered in the center between 5 and 6. This creates a mathematical sense because these words are divided. They received many low scores from individuals who hate them and numerous high scores from people who have positive impressions of them. When we average those opposite data together, they cancel each other out, creating the final score that seems to be neutral.
 
-2.3 Corpus Comparison
+4.3 Corpus Comparison
 
 ![Corpus comparison](figures/corpus_counts.png)
 
@@ -91,7 +91,7 @@ One example is the word “republicans.” It appears in Twitter’s top 5,000 w
 
 5. Qualitative exploration
 
-3.1 Word exhibit (20 selected words)
+5.1 Word exhibit (20 selected words)
 
 | Word | Category | Explanation |
 |------|----------|-------------|
@@ -116,21 +116,22 @@ One example is the word “republicans.” It appears in Twitter’s top 5,000 w
 | freedom | cultural loaded| positive but politically contested |
 | power | cultural loaded | authority vs oppression |
 
-3.2 Interpretation
+5.2 Interpretation
 
 The selected words highlight that the way people feel about words depends heavily on context and culture. Words such as 'laughter', 'love', and 'joy' have high happiness scores because they are usually connected to positive feelings and social interaction. In contrast, words like 'death', 'suicide' and 'rape' have very low happiness scores since they are related to violence, loss and suffering. However, some words have evry different meanings for different people. Words such as 'fucking', 'pussy' show how the meaning of the word can change depending on the situation and the group of people using it. As an example, 'fucking' can be used as an insult, but it can also be used to strongly emphasize something positive, like in the phrase 'this is fucking amazing'. Political and cultural words such as 'capitalism', 'religion' and 'republicans' can also cause disagreement. People may understand these words in various ways depending on their political views, culture, or personal experiences. This illustartes that the emotional meaning of words is not fixed and can change depending on who is using them and in what context. These observations also match the quatitative results. Words with very high or very low happiness scores usually have less disagreement between people. In contrast, highly contested words are often located in the middle of the happiness scale and show higher disgreement. This pattern can also be seen in the scatterplot, where disagreement is highest around neutral happiness scores.
 
 6. Critical reflection: how was this dataset generated, and why does it matter?
 
-4.1 
+6.1 
 In order to understand the labMT 1.0 dataset, it is important for us to reconstruct its "biography", the specific sequence of steps that transformed raw, organic language into a well curated set of mathematical scores. This process began with the selection of four diverse sources of English text to ensure a broad and correct representation of language: Twitter was chosen for it’s social, in-the-moment expressions, Google Books was chosen for it’s historical and literary context, the New York Times for it’s institutional news and lastly Music Lyrics for pop culture and more emotional depth. Rather than choosing words based on their prior emotional definitions, the authors gathered the top 5,000 most frequent words from each source. This resulted in a union of 10,222 unique words, ensuring the instrument measured the actual language people use in daily life.
 Following the creation of this word list, the authors used Amazon’s Mechanical Turk to get human evaluations. Every word was rated by 50 participants on a scale of 1 to 9, aided by stylized faces representing a spectrum from sad to happy. These evaluations were averaged to create the final havg score for each word, along with a standard deviation to track rater disagreement. To refine the instrument, the authors intituted a "neutral zone" filter, signifyed as Δhavg, which keeps out emotionally neutral words that function as what could be named "noise" in the data. Through rigorous trials, they determined that Δhavg=1, removing the words with scores between 4 and 6, provided the perfect middle ground between instrument sensitivity and the text coverage.
 
-4.2 
+6.2 
 The design choices made while making the creation of the Hedonometer have significant consequences for what the instrument is both able and not able to see. By building the word list solely on usage frequency, the authors made a tool that is great at measuring the "ambient" mood of a general population but lacks the resolution to detect rare, highly specific emotional triggers. For instance, common function words like "the" and "of" are included due to their frequency, despite being emotionally neutral, while rare but potent words may be excluded entirely.
 Furthermore, the "bag-of-words" simplification, where the algorithm treats text as a collection of individual words while ignoring grammar, negation and order of the words, means that crucial context is lost. This makes the instrument fallible when analyzing small texts, such as single sentences, where it is not able to distinguish the difference between "happy" and "not happy". There is also a distinct "snapshot in time" limitation, for example because ratings were collected in 2011, the emotional associations are treated as static, failing to take into account how meanings can differ over time. A good example is the word "lost," which received a quite low happiness score partly because of its frequency spiked during the airing of a popular television show's finale rather than reflecting a general societal depression.
 Finally, the instrument must take into account the inherent positivity bias of the English language. Because humans usually try to use more positive words rather than negative ones in natural corpora, a mathematically "neutral" score of 5.0 is actually below the true linguistic average. This bias is visible in the distribution of word scores, which skews significantly toward the right. Also, the choice to avoid "stemming", counting "love" and "loved" as different entries, preserves nuance but can result in inconsistent scoring for the same concept. For example, the verb "have" and its past tense "had" have quite different happiness scores, this likely reflects the types of sentences they are used in rather than a shift in the word's fundamental meaning.
-4.3 
+
+6.3 
 If we would deploy the labMT 1.0 Hedonometer today, we would do so with significant caveats regarding its validity and scope. We trust this instrument to measure macro-scale, exhibited tone in massive datasets where the volume of words outweighs the errors found in individual sentences. It would remain to be a powerful "remote sensor" for identifying the collective emotional footprint of global events, such as for example holidays or disasters, seeing as they are reflected in written public expression. However, we refuse to use this dataset to assess the mental health of individuals or to make claims about "inner" emotional states, as the "bag-of-words" approach is too crude for actual clinical application. To modernize the instrument for 2026, we would recommend to incorporate n-grams to capture negation and implementing dynamic updates to word scores to reflect on and see how modern slang and cultural meanings have been able to evolve since the original 2011 survey.
 
 7. How to run your code.
@@ -157,9 +158,8 @@ Reference :
 Dodds, Peter Sheridan, Kameron Decker Harris, Isabel M. Kloumann, Catherine A. Bliss, and Christopher M. Danforth. “Temporal Patterns of Happiness and Information in a Global Social Network: Hedonometrics and Twitter.” PLoS ONE 6, no. 12 (December 7, 2011): e26752. https://doi.org/10.1371/journal.pone.0026752.
 
 Who did what roles:
-Lien Phuong: 1.1, 1.2, 1.3
-Quynh Nguyên: 2.1, 2.2 
-Ran Kim: 2.3
-Seo Yeon Kim: 3
-Mila Clausen: 4.1, 4.2, 4.3
- (Add qualitative exploration section)
+Lien Phuong: 2.1, 2.2, 2.3
+Quynh Nguyên: 4.1, 4.2, 7
+Ran Kim: 4.3
+Seo Yeon Kim: 5
+Mila Clausen: 6.1, 6.2, 6.3
