@@ -2,13 +2,13 @@
 
 2. Dataset and data dictionary
 
-1.1 Loading the file
+2.1 Loading the file
 
 We used df_read.csv to read the txt. file into a pandas dataframe. In order to convert all columns into numeric types, we used na_values and listed "--" to be perceived as Not a Number (NaN). In the end we converted te txt. file into a csv with df.to_csv. In the code, by printing df.info() and df.isna().sum() the results are going to show us non-null count, dtype and amount of missing values in each column.
    
 The dataset contains 8 columns and 10222 rows excluding the header. Each of last four columns (twitter_rank, google_rank, nyt_rank_lyrics) have 5222 values missing: Dodds et al. clarify that they only ranked the top 5000 frequent words.
 
-1.1 Data dictionary:
+2.2 Data dictionary:
 
 
 
@@ -22,7 +22,7 @@ The dataset contains 8 columns and 10222 rows excluding the header. Each of last
 - lyrics: frequency ranking (float)
 
 
-1.2 Sanity checks
+2.3 Sanity checks
 
 Regarding data quality, there are no duplicates and the word format (spacing, lowercase) stays consistent. Word selection seems to encompass wide spectrum of meanings - every day objects, terminology, verbs, adjectives, material and abstract etc. Although, there are no duplicates, half of the top 10 happiness-indicating words stem from the core 'laugh': verb - base, continous, past forms - and the noun. One could view this as a downgrade to the data quality, however, as deviations of the same core hold differing scores, one can argue they might hold some relevance to their perception
 
