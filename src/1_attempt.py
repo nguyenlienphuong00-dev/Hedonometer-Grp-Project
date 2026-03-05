@@ -3,7 +3,8 @@ import pandas as pd
 df = pd.read_csv("data/raw/Data_Set_S1.txt",
                  delimiter="\t",
                  skiprows=3,
-                 na_values= ["--", ""])
+                 na_values= ["--"]
+)
 df.to_csv("data/processed/Data_Set_S1.csv", index=False) # index=False doesnt save row numbers as the first column - would move all columns to the right?
 
 df = pd.read_csv("data//processed/Data_Set_S1.csv")
