@@ -134,10 +134,14 @@ Finally, the instrument must take into account the inherent positivity bias of t
 If we would deploy the labMT 1.0 Hedonometer today, we would do so with significant caveats regarding its validity and scope. We trust this instrument to measure macro-scale, exhibited tone in massive datasets where the volume of words outweighs the errors found in individual sentences. It would remain to be a powerful "remote sensor" for identifying the collective emotional footprint of global events, such as for example holidays or disasters, seeing as they are reflected in written public expression. However, we refuse to use this dataset to assess the mental health of individuals or to make claims about "inner" emotional states, as the "bag-of-words" approach is too crude for actual clinical application. To modernize the instrument for 2026, we would recommend to incorporate n-grams to capture negation and implementing dynamic updates to word scores to reflect on and see how modern slang and cultural meanings have been able to evolve since the original 2011 survey.
 
 7. How to run your code.
+   
 Set up steps:
-- Before running the project, you must install the required Python libraries to handle data and draw the chart.
-Open your terminal.
-Installed required packages: pandas, matplotlib, requirement.txt. 
+
+Before running the project, you must install the required Python libraries to handle data and draw the chart.
+
+- Open your terminal.
+- Installed required packages: pandas, matplotlib, requirement.txt.
+
 Scripts to run:
 - In your terminal, you need to be inside the src folder. 
 - This project is divided into four separate Python files:
