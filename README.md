@@ -87,7 +87,7 @@ Each corpus contributes 5,000 words to the labMT dataset, but the overlap betwee
 Even though the bar chart shows equal counts, the overlap numbers reveal real differences. Twitter reflects current public conversation, while Google Books represents language across long historical periods.
 
 One example is the word “republicans.” It appears in Twitter’s top 5,000 words but not in Google Books. This likely reflects the immediacy of political discussion on social media. In contrast, Google Books averages language over many decades, where specific contemporary party references are less dominant.
->>>>>>> 0ad074e55b874320e5f07e459a6c55a3d5f4cc8a
+
 
 3. Qualitative exploration
 
