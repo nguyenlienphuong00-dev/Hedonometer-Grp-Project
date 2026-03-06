@@ -39,7 +39,7 @@ The least happiness containing words are connotated with death, which has its ow
 
 Skiprows were used in order to leave out top columns containing metadata. In order to convert all columns into numeric types, we used na_values and listed "--" to be perceived as Not a Number (NaN) because up until then "--" was not recognized as a NaN and the system thus perceived the columns as object dtype. By using df.info() and df.isna().sum(), the results are going to show us non-null count - not empty values -, dtype, and amount of missing values in each column.
 
-3.2 The use of Pandas and Matploblib.
+3.2 The use of Pandas and Matplotlib.
 
 Data handling: Pandas library has numerous built-in functions to work with dataset. We used it to read files, load the text file and calculate the statistical maths. For example, df.mean() was used to figure the mean happiness score, or df.count() was used to find out how many words appeared in each source. 
 
