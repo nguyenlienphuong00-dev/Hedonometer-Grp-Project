@@ -29,7 +29,7 @@ plt.ylabel('Frequency (Number of words)') #label for y-axis.
 plt.axvline(mean_val, color='red', linestyle='dashed', linewidth=2, label=f"mean: {mean_val:.2f}") #add a vertical dashed red line at the mean value of happiness scores, with a label showing the mean value.
 plt.axvline(median_val, color='green', linestyle='dashed', linewidth=2, label=f"median: {median_val:.2f}") #add a vertical dashed green line at the median value of happiness scores, with a label showing the median value.
 plt.legend() #creates a little key in the corner so people know what the red and green lines mean.
-
+plt.savefig("figures/happiness_histogram.png")
 plt.show() #display the histogram.
 
 #2.2
@@ -43,4 +43,6 @@ plt.title('Words Happiness vs Disagreement') #title of the scatter plot.
 plt.xlabel('Average Happiness Score (1 to 9)') #label for x-axis.
 plt.ylabel('Standard Deviation of Happiness Score (Disagreement)') #label for y-axis.
 plt.grid(True, linestyle= '--', alpha=0.5) #add a grid to the scatter plot with dashed lines and light transparency for better readability.
+plt.savefig("figures/happiness_scatter.png")
 plt.show() #display the scatter plot.
+
