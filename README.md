@@ -1,16 +1,15 @@
 
 # Hedonometer-Grp-Project
 
-2. Dataset and data dictionary
+1. Happiness According to Mechanical Turks: Exploring the Hedonometer Dataset
 
-2.1 Loading the file
+This project explores the labMT 1.0 dataset used to measure happiness in language. Using Python, we analyze the distribution of happiness scores, disagreement between raters, and differences in word usage across several text corpora such as Twitter, Google Books, the New York Times, and song lyrics. By combining quantitative analysis with qualitative interpretation, we examine how emotional meaning is reflected in everyday language.
+
+2. Dataset and data dictionary
 
 We used df_read.csv to read the txt. file into a pandas dataframe, removed metadata and converted it the file into a csv, putting a desired path destination which is data/processed.
    
 The dataset contains 8 columns and 10,222 rows excluding the header. Each of last four columns (twitter_rank, google_rank, nyt_rank_lyrics) have 5222 values missing: Dodds et al. clarify that they only ranked the top 5000 frequent words, hence the missing values.
-
-2.2 Data dictionary:
-
 
 
 - word: what word is being rated/inspected (string)
@@ -23,8 +22,6 @@ The dataset contains 8 columns and 10,222 rows excluding the header. Each of las
 - lyrics: frequency ranking (float)
 
 
-2.3 Sanity checks
-
 Regarding data quality, there are no duplicates and the word format (spacing, lowercase) stays consistent. Word selection seems to encompass wide spectrum of meanings - every day objects, terminology, verbs, adjectives, material and abstract etc. Although, there are no duplicates, half of the top 10 happiness-indicating words stem from the core 'laugh': verb - base, continous, past forms - and the noun. One could view this as a downgrade to the data quality, however, as deviations of the same core hold differing scores, one can argue they might hold some relevance to their perception
 
 Most of the top ten 'happiness' words are unarguably ones we would expect. Interestingly, laughter tops the word happiness itself, perhaps because of it being an act embodying the feeling, affording us to give it a material reality. 
@@ -32,8 +29,6 @@ The least happiness containing words are connotated with death, which has its ow
 
 Most of the top ten 'happiness' words are unarguably ones we would expect. Interestingly, laughter tops the word happiness itself, perhaps because of it being an act embodying the feeling, affording us to give it a material reality. 
 The least happiness containing words are connotated with death, which has its own happiness score. Interestingly, suicide ranks higher in negativity than other forms/directions of killing. Personally, I also understand that rape is ranked to be more negative than acts of killing due to its gruesome nature.
-
-3. Methods
 
 3.1 Loading and cleaning the dataset
 
@@ -173,6 +168,6 @@ Dodds, Peter Sheridan, Kameron Decker Harris, Isabel M. Kloumann, Catherine A. B
 Who did what roles:
 Lien Phuong: 2.1, 2.2, 2.3
 Quynh Nguyên: 4.1, 4.2, 7
-Ran Kim: 4.3
+Ran Kim: 1, 4.3
 Seo Yeon Kim: 5
 Mila Clausen: 6.1, 6.2, 6.3
