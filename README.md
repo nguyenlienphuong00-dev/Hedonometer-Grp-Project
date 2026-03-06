@@ -43,7 +43,7 @@ Data handling: Pandas library has numerous built-in functions to work with datas
 Data visualization: Matplotlib is used to create histogram, scatterplot, corpus comparison. It helps to visualize the distribution of happiness score, the relationship between happiness and disagreement. For instance, plt.hist() created a histogram to show the distribution of happiness score, while plt.bar() generated a bar chart to visualize word counts. This method provides a better visualization for close reading and quanlitative interpretation.
 
 
-4. Result section
+4. Result
    
 4.1. Distribution of Happiness Scores.
 
