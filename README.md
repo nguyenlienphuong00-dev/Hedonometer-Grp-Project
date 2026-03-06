@@ -32,14 +32,11 @@ The least happiness containing words are connotated with death, which has its ow
 
 3. Method
 
-3.1 Loading and cleaning the dataset
-
+Loading and cleaning the dataset:
 Skiprows were used in order to leave out top columns containing metadata. In order to convert all columns into numeric types, we used na_values and listed "--" to be perceived as Not a Number (NaN) because up until then "--" was not recognized as a NaN and the system thus perceived the columns as object dtype. By using df.info() and df.isna().sum(), the results are going to show us non-null count - not empty values -, dtype, and amount of missing values in each column.
 
-3.2 The use of Pandas and Matplotlib.
-
+The use of Pandas and Matplotlib:
 Data handling: Pandas library has numerous built-in functions to work with dataset. We used it to read files, load the text file and calculate the statistical maths. For example, df.mean() was used to figure the mean happiness score, or df.count() was used to find out how many words appeared in each source. 
-
 Data visualization: Matplotlib is used to create histogram, scatterplot, corpus comparison. It helps to visualize the distribution of happiness score, the relationship between happiness and disagreement. For instance, plt.hist() created a histogram to show the distribution of happiness score, while plt.bar() generated a bar chart to visualize word counts. This method provides a better visualization for close reading and quanlitative interpretation.
 
 
@@ -168,8 +165,8 @@ Reference :
 Dodds, Peter Sheridan, Kameron Decker Harris, Isabel M. Kloumann, Catherine A. Bliss, and Christopher M. Danforth. “Temporal Patterns of Happiness and Information in a Global Social Network: Hedonometrics and Twitter.” PLoS ONE 6, no. 12 (December 7, 2011): e26752. https://doi.org/10.1371/journal.pone.0026752.
 
 Who did what roles:
-Lien Phuong: 2.1, 2.2, 2.3
-Quynh Nguyên: 4.1, 4.2, 7
+Lien Phuong: 2
+Quynh Nguyên: 3, 4.1, 4.2, 7
 Ran Kim: 1, 4.3
 Seo Yeon Kim: 5
 Mila Clausen: 6.1, 6.2, 6.3
