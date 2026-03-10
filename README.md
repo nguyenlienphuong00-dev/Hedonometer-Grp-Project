@@ -94,7 +94,7 @@ In the scatterplot, a fascinating pattern emerges. The words with the highest st
 
 Each corpus contributes 5,000 words to the labMT dataset, but the overlap between them is limited. Only 1,816 words appear in all four corpora, and 2,881 words overlap between Twitter and the New York Times. This shows that “common language” depends on the source.
 
-Even though the bar chart shows equal counts, the overlap numbers reveal real differences. Twitter reflects current public conversation, while Google Books represents language across long historical periods.
+The bar chart shows that each corpus contributes 5,000 words, but the overlap calculations reveal that many of these words are not shared across corpora. Twitter reflects current public conversation, while Google Books represents language across long historical periods.
 
 One example is the word “republicans.” It appears in Twitter’s top 5,000 words but not in Google Books. This likely reflects the immediacy of political discussion on social media. In contrast, Google Books averages language over many decades, where specific contemporary party references are less dominant.
 
