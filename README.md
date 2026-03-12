@@ -173,3 +173,25 @@ Quynh Nguyên: 3, 4.1, 4.2, 7
 Ran Kim: 1, 4.3
 Seo Yeon Kim: 5
 Mila Clausen: 6.1, 6.2, 6.3
+
+Part 2
+## Data Acquisition
+
+This project uses the IMDB Large Movie Review Dataset.
+
+Source:
+https://ai.stanford.edu/~amaas/data/sentiment/
+
+The dataset contains 50,000 movie reviews labeled as positive or negative.
+
+The raw dataset was downloaded and processed using a Python script:
+src/fetch_imdb.py
+
+This script converts the raw IMDB text files into a structured CSV dataset.
+
+The processed dataset is saved as:
+data/processed/imdb_reviews.csv
+
+Ethical Considerations:
+The dataset consists of publicly available movie reviews.  
+No personal identifiers are included. The analysis focuses only on aggregate linguistic patterns and does not attempt to identify or profile individual users.
