@@ -36,11 +36,10 @@ Loading and cleaning the dataset:
 
 Skiprows were used in order to leave out top columns containing metadata. In order to convert all columns into numeric types, we used na_values and listed "--" to be perceived as Not a Number (NaN) because up until then "--" was not recognized as a NaN and the system thus perceived the columns as object dtype. By using df.info() and df.isna().sum(), the results are going to show us non-null count - not empty values -, dtype, and amount of missing values in each column.
 
-The use of Pandas and Matplotlib:
+Tools and Libraries:
 
-Data handling: Pandas library has numerous built-in functions to work with dataset. We used it to read files, load the text file and calculate the statistical maths. For example, df.mean() was used to figure the mean happiness score, or df.count() was used to find out how many words appeared in each source. 
-
-Data visualization: Matplotlib is used to create histogram, scatterplot, corpus comparison. It helps to visualize the distribution of happiness score, the relationship between happiness and disagreement. For instance, plt.hist() created a histogram to show the distribution of happiness score, while plt.bar() generated a bar chart to visualize word counts. This method provides a better visualization for close reading and quanlitative interpretation.
+- Python
+- Pandas and Matplotlib.
 
 
 4. Result
@@ -51,23 +50,26 @@ Data visualization: Matplotlib is used to create histogram, scatterplot, corpus 
 
 Figure 4.1 The distribution historgam of Happiness Scores. 
 
-Mean happiness score: 5.38
-Median happiness score: 5.44
-Standard deviation of happiness score: 1.08
-5th percentile of happiness score: 3.18
-95th percentile of happiness score: 7.08
+| Statistic | Value |
+|-----------|-------|
+| Mean happiness score | 5.38 |
+| Median happiness score | 5.44 |
+| Standard deviation | 1.08 |
+| 5th percentile | 3.18 |
+| 95th percentile | 7.08 |
 
 Interpretation: 
 Looking at the histogram, the happiness scores are slightly above neutral with the highest concentration of words between 5 and 6. The mean which is 5.38 and the median which is 5.44 are close. This shows a symmetric distribution. However, the mean is smaller than the median because it is pulled down by an amount of negative words on the left side of the chart. The left tail is longer than the right one, emphasizing the mild left-skewed distribution. Despite the majority of neutral and positive words, the negative words extend the lower end of the scale. Most of the tallest blue bars are centered between 4.5 and 6.5 scores. Many words in the middle of the bar chart are considered neutral by people. The surprising pattern is that no word gets an absolute score such as 1 or 9. It is interesting that out of numerous words, people were unable to agree on any words that are absolutely positive or negative. 
 
 4.2 Top 5 contested words.
 
-                word  happiness_average  happiness_standard_deviation
-8425         fucking               4.64                        2.9260  
-8019           pussy               4.80                        2.6650
-3769         whiskey               5.72                        2.6422
-6389      capitalism               5.16                        2.4524
-8796       mortality               4.38                        2.5546
+| word        | happiness_average | happiness_standard_deviation |
+|-------------|------------------|------------------------------|
+| fucking     | 4.64             | 2.9260                       |
+| pussy       | 4.80             | 2.6650                       |
+| whiskey     | 5.72             | 2.6422                       |
+| capitalism  | 5.16             | 2.4524                       |
+| mortality   | 4.38             | 2.5546                       |
 
 Interpretation: 
 - 'Fucking' is considered highly negative and aggressive in its meaning. Some people use it to curse or swear at other people, so it gets a low score. However, in modern society, it is also used as a positive intensifier to express an individual's feelings such as "This is fucking amazing!". Therefore, young teenagers rate this word with high score, creating a massive contradiction in data.
