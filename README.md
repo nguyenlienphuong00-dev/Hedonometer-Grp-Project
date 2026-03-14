@@ -1,27 +1,16 @@
 
 # Hedonometer-Grp-Project
 
-Happiness According to Mechanical Turks: Exploring the Hedonometer Dataset
+1. Happiness According to Mechanical Turks: Exploring the Hedonometer Dataset
 
-<<<<<<< HEAD
-2.1 Loading the file
-=======
-This project explores the labMT 1.0 hedonometer dataset, which contains happiness ratings for thousands of English words collected from Mechanical Turk workers. Using Python, we analyze the distribution of happiness scores, disagreement between raters, and differences in word usage across several text corpora such as Twitter, Google Books, the New York Times, and song lyrics. By combining quantitative analysis with qualitative interpretation, the project examines how language reflects emotional meaning and cultural context.
+This project explores the labMT 1.0 dataset used to measure happiness in language. Using Python, we analyze the distribution of happiness scores, disagreement between raters, and differences in word usage across several text corpora such as Twitter, Google Books, the New York Times, and song lyrics. By combining quantitative analysis with qualitative interpretation, we examine how emotional meaning is reflected in everyday language.
 
-1. Dataset and data dictionary
->>>>>>> bdd90e0 (Add project title and overview)
+2. Dataset and data dictionary
 
 We used df_read.csv to read the txt. file into a pandas dataframe, removed metadata and converted it the file into a csv, putting a desired path destination which is data/processed.
    
 The dataset contains 8 columns and 10,222 rows excluding the header. Each of last four columns (twitter_rank, google_rank, nyt_rank_lyrics) have 5222 values missing: Dodds et al. clarify that they only ranked the top 5000 frequent words, hence the missing values.
 
-<<<<<<< HEAD
-2.2 Data dictionary:
-
-
-=======
-Data dictionary:
->>>>>>> bdd90e0 (Add project title and overview)
 
 - word: what word is being rated/inspected (string)
 - happiness_rank: ranking from indicating most happiness to least (integer)
@@ -33,11 +22,6 @@ Data dictionary:
 - lyrics: frequency ranking (float)
 
 
-<<<<<<< HEAD
-2.3 Sanity checks
-
-=======
->>>>>>> bdd90e0 (Add project title and overview)
 Regarding data quality, there are no duplicates and the word format (spacing, lowercase) stays consistent. Word selection seems to encompass wide spectrum of meanings - every day objects, terminology, verbs, adjectives, material and abstract etc. Although, there are no duplicates, half of the top 10 happiness-indicating words stem from the core 'laugh': verb - base, continous, past forms - and the noun. One could view this as a downgrade to the data quality, however, as deviations of the same core hold differing scores, one can argue they might hold some relevance to their perception
 
 Most of the top ten 'happiness' words are unarguably ones we would expect. Interestingly, laughter tops the word happiness itself, perhaps because of it being an act embodying the feeling, affording us to give it a material reality. 
@@ -46,49 +30,46 @@ The least happiness containing words are connotated with death, which has its ow
 Most of the top ten 'happiness' words are unarguably ones we would expect. Interestingly, laughter tops the word happiness itself, perhaps because of it being an act embodying the feeling, affording us to give it a material reality. 
 The least happiness containing words are connotated with death, which has its own happiness score. Interestingly, suicide ranks higher in negativity than other forms/directions of killing. Personally, I also understand that rape is ranked to be more negative than acts of killing due to its gruesome nature.
 
-<<<<<<< HEAD
-3. Methods
+3. Method
 
-3.1 Loading and cleaning the dataset
+Loading and cleaning the dataset:
 
 Skiprows were used in order to leave out top columns containing metadata. In order to convert all columns into numeric types, we used na_values and listed "--" to be perceived as Not a Number (NaN) because up until then "--" was not recognized as a NaN and the system thus perceived the columns as object dtype. By using df.info() and df.isna().sum(), the results are going to show us non-null count - not empty values -, dtype, and amount of missing values in each column.
 
-3.2 The use of Pandas and Matplotlib.
+Tools and Libraries:
 
-Data handling: Pandas library has numerous built-in functions to work with dataset. We used it to read files, load the text file and calculate the statistical maths. For example, df.mean() was used to figure the mean happiness score, or df.count() was used to find out how many words appeared in each source. 
+- Python
+- Pandas and Matplotlib.
 
-Data visualization: Matplotlib is used to create histogram, scatterplot, corpus comparison. It helps to visualize the distribution of happiness score, the relationship between happiness and disagreement. For instance, plt.hist() created a histogram to show the distribution of happiness score, while plt.bar() generated a bar chart to visualize word counts. This method provides a better visualization for close reading and quanlitative interpretation.
 
-
-4. Result section
+4. Result
    
 4.1. Distribution of Happiness Scores.
-=======
-2. Result section
-2.1. Distribution of Happiness Scores.
->>>>>>> bdd90e0 (Add project title and overview)
 
 <img width="1000" height="600" alt="histogram" src="https://github.com/user-attachments/assets/0bb49420-b830-4d41-80d0-f9345c3e5dc6" />
 
 Figure 4.1 The distribution historgam of Happiness Scores. 
 
-Mean happiness score: 5.38
-Median happiness score: 5.44
-Standard deviation of happiness score: 1.08
-5th percentile of happiness score: 3.18
-95th percentile of happiness score: 7.08
+| Statistic | Value |
+|-----------|-------|
+| Mean happiness score | 5.38 |
+| Median happiness score | 5.44 |
+| Standard deviation | 1.08 |
+| 5th percentile | 3.18 |
+| 95th percentile | 7.08 |
 
 Interpretation: 
 Looking at the histogram, the happiness scores are slightly above neutral with the highest concentration of words between 5 and 6. The mean which is 5.38 and the median which is 5.44 are close. This shows a symmetric distribution. However, the mean is smaller than the median because it is pulled down by an amount of negative words on the left side of the chart. The left tail is longer than the right one, emphasizing the mild left-skewed distribution. Despite the majority of neutral and positive words, the negative words extend the lower end of the scale. Most of the tallest blue bars are centered between 4.5 and 6.5 scores. Many words in the middle of the bar chart are considered neutral by people. The surprising pattern is that no word gets an absolute score such as 1 or 9. It is interesting that out of numerous words, people were unable to agree on any words that are absolutely positive or negative. 
 
 4.2 Top 5 contested words.
 
-                word  happiness_average  happiness_standard_deviation
-8425         fucking               4.64                        2.9260  
-8019           pussy               4.80                        2.6650
-3769         whiskey               5.72                        2.6422
-6389      capitalism               5.16                        2.4524
-8796       mortality               4.38                        2.5546
+| word        | happiness_average | happiness_standard_deviation |
+|-------------|------------------|------------------------------|
+| fucking     | 4.64             | 2.9260                       |
+| pussy       | 4.80             | 2.6650                       |
+| whiskey     | 5.72             | 2.6422                       |
+| capitalism  | 5.16             | 2.4524                       |
+| mortality   | 4.38             | 2.5546                       |
 
 Interpretation: 
 - 'Fucking' is considered highly negative and aggressive in its meaning. Some people use it to curse or swear at other people, so it gets a low score. However, in modern society, it is also used as a positive intensifier to express an individual's feelings such as "This is fucking amazing!". Therefore, young teenagers rate this word with high score, creating a massive contradiction in data.
@@ -107,7 +88,7 @@ Figure 4.2. The scatterplot of Happiness Scores.
 
 Connecting qualitative interpretation to quantitative pattern:
 
-In the scatterplot, a fascinating pattern emerges. The words with the highest standard deviation scores have average happiness scores centering in the middle of bar chart. The scatterplot shows that the highest dots are clustered in the center between 5 and 6. This creates a mathematical sense because these words are divided. They received many low scores from individuals who hate them and numerous high scores from people who have positive impressions of them. When we average those opposite data together, they cancel each other out, creating the final score that seems to be neutral.
+In the scatterplot, a fascinating pattern emerges. The words with the highest standard deviation have average happiness scores centering in the middle of bar chart. The scatterplot shows that the highest dots are clustered in the center between 5 and 6. This creates a mathematical sense because these words are divided. They received many low scores from individuals who hate them and numerous high scores from people who have positive impressions of them. When we average those opposite data together, they cancel each other out, creating the final score that seems to be neutral.
 
 4.3 Corpus Comparison
 
@@ -115,7 +96,7 @@ In the scatterplot, a fascinating pattern emerges. The words with the highest st
 
 Each corpus contributes 5,000 words to the labMT dataset, but the overlap between them is limited. Only 1,816 words appear in all four corpora, and 2,881 words overlap between Twitter and the New York Times. This shows that “common language” depends on the source.
 
-Even though the bar chart shows equal counts, the overlap numbers reveal real differences. Twitter reflects current public conversation, while Google Books represents language across long historical periods.
+The bar chart shows that each corpus contributes 5,000 words, but the overlap calculations reveal that many of these words are not shared across corpora. Twitter reflects current public conversation, while Google Books represents language across long historical periods.
 
 One example is the word “republicans.” It appears in Twitter’s top 5,000 words but not in Google Books. This likely reflects the immediacy of political discussion on social media. In contrast, Google Books averages language over many decades, where specific contemporary party references are less dominant.
 
@@ -189,8 +170,43 @@ Reference :
 Dodds, Peter Sheridan, Kameron Decker Harris, Isabel M. Kloumann, Catherine A. Bliss, and Christopher M. Danforth. “Temporal Patterns of Happiness and Information in a Global Social Network: Hedonometrics and Twitter.” PLoS ONE 6, no. 12 (December 7, 2011): e26752. https://doi.org/10.1371/journal.pone.0026752.
 
 Who did what roles:
-Lien Phuong: 2.1, 2.2, 2.3
-Quynh Nguyên: 4.1, 4.2, 7
-Ran Kim: 4.3
+Lien Phuong: 2
+Quynh Nguyên: 3, 4.1, 4.2, 7
+Ran Kim: 1, 4.3
 Seo Yeon Kim: 5
 Mila Clausen: 6.1, 6.2, 6.3
+
+Part 2
+## Data Acquisition
+
+This project uses the IMDB Large Movie Review Dataset.
+
+Source:
+https://ai.stanford.edu/~amaas/data/sentiment/
+
+The dataset contains 50,000 movie reviews labeled as positive or negative.
+
+The raw dataset was downloaded and processed using a Python script:
+src/fetch_imdb.py
+
+This script converts the raw IMDB text files into a structured CSV dataset.
+
+The processed dataset is saved as:
+data/processed/imdb_reviews.csv
+
+## Ethical Considerations:
+The dataset consists of publicly available movie reviews.  
+No personal identifiers are included. The analysis focuses only on aggregate linguistic patterns and does not attempt to identify or profile individual users.
+<<<<<<< HEAD
+=======
+
+## Dataset Structure
+
+The processed dataset contains the following columns:
+
+split – indicates whether the review belongs to the training or test set  
+sentiment – the review label (pos or neg)  
+review – the full text of the movie review  
+
+Total number of reviews: 50,000
+>>>>>>> d7f7920 (Update dataset documentation)
