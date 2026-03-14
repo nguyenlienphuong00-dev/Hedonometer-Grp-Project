@@ -1,17 +1,27 @@
 
 # Hedonometer-Grp-Project
 
-2. Dataset and data dictionary
+Happiness According to Mechanical Turks: Exploring the Hedonometer Dataset
 
+<<<<<<< HEAD
 2.1 Loading the file
+=======
+This project explores the labMT 1.0 hedonometer dataset, which contains happiness ratings for thousands of English words collected from Mechanical Turk workers. Using Python, we analyze the distribution of happiness scores, disagreement between raters, and differences in word usage across several text corpora such as Twitter, Google Books, the New York Times, and song lyrics. By combining quantitative analysis with qualitative interpretation, the project examines how language reflects emotional meaning and cultural context.
+
+1. Dataset and data dictionary
+>>>>>>> bdd90e0 (Add project title and overview)
 
 We used df_read.csv to read the txt. file into a pandas dataframe, removed metadata and converted it the file into a csv, putting a desired path destination which is data/processed.
    
 The dataset contains 8 columns and 10,222 rows excluding the header. Each of last four columns (twitter_rank, google_rank, nyt_rank_lyrics) have 5222 values missing: Dodds et al. clarify that they only ranked the top 5000 frequent words, hence the missing values.
 
+<<<<<<< HEAD
 2.2 Data dictionary:
 
 
+=======
+Data dictionary:
+>>>>>>> bdd90e0 (Add project title and overview)
 
 - word: what word is being rated/inspected (string)
 - happiness_rank: ranking from indicating most happiness to least (integer)
@@ -23,8 +33,11 @@ The dataset contains 8 columns and 10,222 rows excluding the header. Each of las
 - lyrics: frequency ranking (float)
 
 
+<<<<<<< HEAD
 2.3 Sanity checks
 
+=======
+>>>>>>> bdd90e0 (Add project title and overview)
 Regarding data quality, there are no duplicates and the word format (spacing, lowercase) stays consistent. Word selection seems to encompass wide spectrum of meanings - every day objects, terminology, verbs, adjectives, material and abstract etc. Although, there are no duplicates, half of the top 10 happiness-indicating words stem from the core 'laugh': verb - base, continous, past forms - and the noun. One could view this as a downgrade to the data quality, however, as deviations of the same core hold differing scores, one can argue they might hold some relevance to their perception
 
 Most of the top ten 'happiness' words are unarguably ones we would expect. Interestingly, laughter tops the word happiness itself, perhaps because of it being an act embodying the feeling, affording us to give it a material reality. 
@@ -33,6 +46,7 @@ The least happiness containing words are connotated with death, which has its ow
 Most of the top ten 'happiness' words are unarguably ones we would expect. Interestingly, laughter tops the word happiness itself, perhaps because of it being an act embodying the feeling, affording us to give it a material reality. 
 The least happiness containing words are connotated with death, which has its own happiness score. Interestingly, suicide ranks higher in negativity than other forms/directions of killing. Personally, I also understand that rape is ranked to be more negative than acts of killing due to its gruesome nature.
 
+<<<<<<< HEAD
 3. Methods
 
 3.1 Loading and cleaning the dataset
@@ -49,6 +63,10 @@ Data visualization: Matplotlib is used to create histogram, scatterplot, corpus 
 4. Result section
    
 4.1. Distribution of Happiness Scores.
+=======
+2. Result section
+2.1. Distribution of Happiness Scores.
+>>>>>>> bdd90e0 (Add project title and overview)
 
 <img width="1000" height="600" alt="histogram" src="https://github.com/user-attachments/assets/0bb49420-b830-4d41-80d0-f9345c3e5dc6" />
 
