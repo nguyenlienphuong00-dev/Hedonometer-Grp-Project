@@ -194,6 +194,19 @@ This script converts the raw IMDB text files into a structured CSV dataset.
 The processed dataset is saved as:
 data/processed/imdb_reviews.csv
 
-Ethical Considerations:
+## Ethical Considerations:
 The dataset consists of publicly available movie reviews.  
 No personal identifiers are included. The analysis focuses only on aggregate linguistic patterns and does not attempt to identify or profile individual users.
+<<<<<<< HEAD
+=======
+
+## Dataset Structure
+
+The processed dataset contains the following columns:
+
+split – indicates whether the review belongs to the training or test set  
+sentiment – the review label (pos or neg)  
+review – the full text of the movie review  
+
+Total number of reviews: 50,000
+>>>>>>> d7f7920 (Update dataset documentation)
