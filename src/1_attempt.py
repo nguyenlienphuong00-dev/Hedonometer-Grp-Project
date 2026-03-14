@@ -71,3 +71,17 @@ if "text" in df.columns:
     print("\nHappiness scores calculated and saved.")
 else:
     print("\nNo 'text' column found — hedonometer scoring skipped.")
+
+#Apply hedonometer scoring to IMDb corpus
+
+corpus = pd.read_csv("data/raw/imdb_reviews.csv")
+
+print("Corpus columns:", corpus.columns)
+
+# compute happiness score for each review
+corpus["happiness_score"] = corpus["review"].apply(hedonometer_score)
+
+# save scored corpus
+corpus.to_csv("data/processed/imdb_reviews_scored.csv", index=False)
+
+print("Hedonometer scoring completed.")
