@@ -206,7 +206,7 @@ data/processed/imdb_reviews.csv
 ## Ethical Considerations:
 The dataset consists of publicly available movie reviews.  
 No personal identifiers are included. The analysis focuses only on aggregate linguistic patterns and does not attempt to identify or profile individual users.
-<<<<<<< HEAD
+
 =======
 
 ## Dataset Structure
@@ -214,9 +214,32 @@ No personal identifiers are included. The analysis focuses only on aggregate lin
 The processed dataset contains the following columns:
 
 split – indicates whether the review belongs to the training or test set  
-sentiment – the review label (pos or neg)  
+sentiment – the review label (pos or neg)  <- neg: 0-4/10, pos: 7-10/10 based on the stanford paper
 review – the full text of the movie review  
 
 Total number of reviews: 50,000
 >>>>>>> d7f7920 (Update dataset documentation)
+
+## Sampling plan and results
+
+In this part, we created a sampling strategy, quantified uncertainty through boostrapping and made relevant plots to the sample to visualize happiness scores of positive and negative reviews and outgroups. Within our research, we ask whether the hedonometer can accurately identify positive and negative reviews by searching for special case reviews that use for example sarcasm.
+
+Sampling Plan
+We decided to sample the entire dataset for precise calculations. The dataset contains equal amount of training, testing, positive, and negative reviews - meaning it is already balanced. While boostrapping 1000 times, we calculated the positive and negative mean happiness score. Afterwards, we searched for number of positive and negative reviews which score higher than the mean of their counterpart category. 
+
+Key statistics from bootstrap analysis
+
+The Hedonometer distinguishes positive and negative reviews with a mean difference of 0.37 (95% CI: [0.36, 0.37]). Although the confidence intervals are narrower due to the bigger sample size, considering that the dataset consists of extremely negative and positive reviews, one would assume the mean difference of these categories to be bigger. This leads us to reflect the appropriateness of using hedonometer as a method.
+
+![Bootstrap Distributions](figures/boostrap_distributions.png)
+
+In total there were 3299 negative reviews found, which scored higher in happiness than the positive mean, making up 13.2% of all negative reviews. Regarding positive reviews, there are 3421 found scoring in happiness lower than the negative mean, making up 13.7% of all positive reviews. The reason for such results could be due to the reviewer's vocabulary, particularly use of sarcasm or overly expressive language. 
+
+![Suspicious Reviews Scatter](figures/suspicious_reviews_scatter.png)
+
+
+
+
+
+
 
