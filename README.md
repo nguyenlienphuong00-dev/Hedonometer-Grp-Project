@@ -59,7 +59,10 @@ Figure 4.1 The distribution historgam of Happiness Scores.
 | 95th percentile | 7.08 |
 
 Interpretation: 
-Looking at the histogram, the happiness scores are slightly above neutral with the highest concentration of words between 5 and 6. The mean which is 5.38 and the median which is 5.44 are close. This shows a symmetric distribution. However, the mean is smaller than the median because it is pulled down by an amount of negative words on the left side of the chart. The left tail is longer than the right one, emphasizing the mild left-skewed distribution. Despite the majority of neutral and positive words, the negative words extend the lower end of the scale. Most of the tallest blue bars are centered between 4.5 and 6.5 scores. Many words in the middle of the bar chart are considered neutral by people. The surprising pattern is that no word gets an absolute score such as 1 or 9. It is interesting that out of numerous words, people were unable to agree on any words that are absolutely positive or negative. 
+Looking at the histogram, the happiness scores are slightly above neutral with the highest concentration of words between 5 and 6. The mean (5.38) and the median (5.44) are close, showing a symmetric distribution. As the mean is smaller than the median and the left tail is longer than the right one, the distribution is mild left skew. The left long tail of negative scores also pull the overall average down. Moreover, with the highest density between 4.5 and 6.5 scores, the histogram indicates that many words in labMT 1.0 are considered neutral or moderately positive.
+
+The surprising pattern is that no word gets an absolute score such as 1 or 9. It is interesting that out of numerous words, people were unable to agree on any words that are absolutely positive or negative. The interpretation of words depends on context or cultural background, which leads individuals to perceive the same words in different ways. Therefore, the rating scores from many participants seem to be neutral in labMT 1.0. 
+
 
 4.2 Top 5 contested words.
 
@@ -88,7 +91,13 @@ Figure 4.2. The scatterplot of Happiness Scores.
 
 Connecting qualitative interpretation to quantitative pattern:
 
-In the scatterplot, a fascinating pattern emerges. The words with the highest standard deviation have average happiness scores centering in the middle of bar chart. The scatterplot shows that the highest dots are clustered in the center between 5 and 6. This creates a mathematical sense because these words are divided. They received many low scores from individuals who hate them and numerous high scores from people who have positive impressions of them. When we average those opposite data together, they cancel each other out, creating the final score that seems to be neutral.
+In the scatterplot, the data forms a flower shape, which reflects the variety of agreement and disagreement in different ranges of the scores. First, looking at the left and right edges of the plot, the small density of points clusters around low standard deviation. This means that words with very low and high average happiness scores have a tendency to have a significant agreement among participants. For example, to achieve a high score such as 8.5, every individual needs to rate 8.0 or 9.0 for that word.
+
+
+Second, the highest points of standard deviation cluster around the center of the X-axis, between 4.0 and 6.0 scores. These words are considered controversial, because people interpret their meanings differently. Some participants give them low scores, while the others rate them with high scores. These opposite ratings are averaged together; therefore, the results appear to be neutral but produce a high standard deviation. 
+
+Finally, the dense clusters of points are in the bottom center of the plot, between 5.0 and 6.0 scores. These words are neither strongly negative nor strongly positive to the participants, so they gave scores around the middle of the scale. Despite the variation in individuals’ opinions, the disagreement is moderate, leading to both average happiness scores and mid-range standard deviation.
+
 
 4.3 Corpus Comparison
 
