@@ -239,7 +239,8 @@ In total there were 3299 negative reviews found, which scored higher in happines
 
 ## Data visualization 
 
-![alt text](image.png)
+<img width="682" height="552" alt="image" src="https://github.com/user-attachments/assets/a951e67b-95c2-4413-8aab-9b42661b7273" />
+
 
 Distribution of Hedonometer Scores for Positive and Negative reviews.
 
