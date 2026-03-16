@@ -39,7 +39,9 @@ Skiprows were used in order to leave out top columns containing metadata. In ord
 Tools and Libraries:
 
 - Python
-- Pandas and Matplotlib.
+- Pandas
+- Matplotlib
+- Seaborn
 
 
 4. Result
