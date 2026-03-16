@@ -274,18 +274,21 @@ In total there were 3299 negative reviews found, which scored higher in happines
 
 ![Suspicious Reviews Scatter](figures/suspicious_reviews_scatter.png)
 
-## Data visualization 
-
-<img width="682" height="552" alt="image" src="https://github.com/user-attachments/assets/a951e67b-95c2-4413-8aab-9b42661b7273" />
-
-
-Distribution of Hedonometer Scores for Positive and Negative reviews.
+## Data visualization
 
 To answer our research question, we created a boxplot to have a better data visualization for interpretation. It illustrates a comparison of the distribution of the happiness scores across IMDb reviews. First, the Hedonometer is accurate as you can see that the median happiness score for positive reviews (around 6.2) is higher than negative reviews (around 5.8). This shows that positive reviews have words with higher happiness value. 
 
 Second, the boxplot highlights important limitations in the Hedonometer's accuracy for this dataset. Because of the overlap in the interquartile ranges, happiness scores, such as 6, could belong to negative or positive reviews. This overlap leads to ambiguous sentiment classifications. 
 
 Finally, the numerous outliers in boxplot present the inconsistency between IMBd sentiment labels and Hedonometer scores. For instance, a positive review has a low happiness score, which is below 4. The unusual pattern demonstrates that the Hedonometer can misinterpret sentiment in some contexts. 
+
+
+<img width="682" height="552" alt="image" src="https://github.com/user-attachments/assets/a951e67b-95c2-4413-8aab-9b42661b7273" />
+
+
+Distribution of Hedonometer Scores for Positive and Negative reviews.
+
+
 
 
 
