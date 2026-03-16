@@ -218,7 +218,42 @@ sentiment – the review label (pos or neg)  <- neg: 0-4/10, pos: 7-10/10 based 
 review – the full text of the movie review  
 
 Total number of reviews: 50,000
->>>>>>> d7f7920 (Update dataset documentation)
+
+## Hedonometer Measurement Method
+
+Tokenization
+
+To prepare the IMDb reviews for analysis, each review was tokenized into individual word tokens. The text was converted to lowercase and split using a regular expression that extracts alphabetical word sequences. This removes punctuation and ensures consistent matching with the sentiment lexicon.
+
+Example:
+
+"This movie was amazing!"
+
+becomes
+
+["this", "movie", "was", "amazing"]
+
+Matching Tokens to the labMT Lexicon
+
+Each token was matched against the labMT 1.0 lexicon, which contains more than 10,000 English words with happiness scores ranging from approximately 1 (very negative) to 9 (very positive).
+
+If a token appears in the lexicon, its corresponding happiness score is retrieved and used in the calculation.
+
+Example entries from the lexicon:
+
+| Word | Happiness Score |
+|-----|------|
+| love | 8.42 |
+| happy | 8.30 |
+| murder | 1.48 |
+
+Only tokens present in the lexicon contribute to the document’s happiness score.
+
+The computed scores were saved in the processed dataset:
+data/processed/imdb_reviews_scored.csv
+
+This dataset contains the original review text along with the calculated happiness_score for each document. These scores were used for the statistical analysis and visualizations presented in the following sections.
+
 
 ## Sampling plan and results
 
