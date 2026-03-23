@@ -223,15 +223,14 @@ Total number of reviews: 50,000
 ## Hedonometer Measurement Method
 
 ## Tokenization & Sentiment Pipeline
-
 ```mermaid
 graph TD
-A[Raw Review: This movie was amazing] --> B[Tokenization]
-B --> C[Tokens: this, movie, was, amazing]
-C --> D[Match with labMT Lexicon]
-D --> E[Scores: 5.2, 6.1, 5.0, 7.8]
-E --> F[Compute Average]
-F --> G[Final Happiness Score]
+A[Raw Review] --> B[Tokenization]
+B --> C[Word Tokens]
+C --> D[Lexicon Matching]
+D --> E[Happiness Scores]
+E --> F[Average Score]
+F --> G[Final Output]
 
 Example entries from the lexicon:
 
