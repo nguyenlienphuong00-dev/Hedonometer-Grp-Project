@@ -226,10 +226,10 @@ Total number of reviews: 50,000
 
 ```mermaid
 graph TD
-A[Raw Review: "This movie was amazing!"] --> B[Tokenization]
-B --> C["Tokens: this, movie, was, amazing"]
+A[Raw Review: This movie was amazing] --> B[Tokenization]
+B --> C[Tokens: this, movie, was, amazing]
 C --> D[Match with labMT Lexicon]
-D --> E["Scores: 5.2, 6.1, 5.0, 7.8"]
+D --> E[Scores: 5.2, 6.1, 5.0, 7.8]
 E --> F[Compute Average]
 F --> G[Final Happiness Score]
 
