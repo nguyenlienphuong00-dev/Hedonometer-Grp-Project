@@ -85,3 +85,43 @@ corpus["happiness_score"] = corpus["review"].apply(hedonometer_score)
 corpus.to_csv("data/processed/imdb_reviews_scored.csv", index=False)
 
 print("Hedonometer scoring completed.")
+
+import pandas as pd
+
+# load scored IMDb dataset
+df = pd.read_csv("data/processed/imdb_reviews_scored.csv")
+
+print("Columns:", df.columns)
+
+# create small dataset
+small_df = df.sample(n=1000, random_state=42)
+
+# save it
+small_df.to_csv("data/processed/imdb_small.csv", index=False)
+
+print("\nSmall dataset created:", len(small_df))
+
+# compare means
+print("\nMean comparison:")
+print("Full:", df["happiness_score"].mean())
+print("Small:", small_df["happiness_score"].mean())
+
+# compare positive vs negative
+print("\nBy label:")
+print(small_df.groupby("sentiment")["happiness_score"].mean())
+
+import matplotlib.pyplot as plt
+
+# calculate means by sentiment
+means = small_df.groupby("sentiment")["happiness_score"].mean()
+
+# plot
+means.plot(kind="bar")
+
+plt.title("Average Happiness Score by Review Sentiment (Small Dataset)")
+plt.xlabel("Sentiment")
+plt.ylabel("Average Happiness Score")
+
+plt.tight_layout()
+plt.savefig("figures/small_dataset_barplot.png")
+plt.show()
