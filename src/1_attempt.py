@@ -125,3 +125,49 @@ plt.ylabel("Average Happiness Score")
 plt.tight_layout()
 plt.savefig("figures/small_dataset_barplot.png")
 plt.show()
+
+# compare full vs small dataset
+full_means = df.groupby("sentiment")["happiness_score"].mean()
+small_means = small_df.groupby("sentiment")["happiness_score"].mean()
+
+import pandas as pd
+comparison = pd.DataFrame({
+    "Full Dataset": full_means,
+    "Small Dataset": small_means
+})
+
+comparison.plot(kind="bar")
+
+plt.title("Full vs Small Dataset: Happiness Scores by Sentiment")
+plt.xlabel("Sentiment")
+plt.ylabel("Average Happiness Score")
+
+plt.xticks(rotation=0)
+plt.ylim(5.6, 6.2)  # 👈 makes differences visible
+
+plt.tight_layout()
+plt.savefig("figures/full_vs_small_comparison.png")
+plt.ylim(5.7, 6.2)
+# plt.show()
+
+# FULL vs SMALL comparison plot
+full_means = df.groupby("sentiment")["happiness_score"].mean()
+small_means = small_df.groupby("sentiment")["happiness_score"].mean()
+
+import pandas as pd
+comparison = pd.DataFrame({
+    "Full Dataset": full_means,
+    "Small Dataset": small_means
+})
+
+comparison.plot(kind="bar")
+
+plt.title("Full vs Small Dataset: Happiness Scores by Sentiment")
+plt.xlabel("Sentiment")
+plt.ylabel("Average Happiness Score")
+
+plt.xticks(rotation=0)
+plt.tight_layout()
+
+plt.savefig("figures/full_vs_small_comparison.png")
+# plt.show()
