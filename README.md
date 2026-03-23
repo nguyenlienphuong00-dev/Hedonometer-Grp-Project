@@ -223,6 +223,10 @@ Total number of reviews: 50,000
 ## Hedonometer Measurement Method
 
 ## Tokenization & Sentiment Pipeline
+
+```markdown
+## Tokenization & Sentiment Pipeline
+
 ```mermaid
 graph TD
 A[Raw Review] --> B[Tokenization]
