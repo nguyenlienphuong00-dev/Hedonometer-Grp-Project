@@ -224,9 +224,6 @@ Total number of reviews: 50,000
 
 ## Tokenization & Sentiment Pipeline
 
-```markdown
-## Tokenization & Sentiment Pipeline
-
 ```mermaid
 graph TD
 A[Raw Review] --> B[Tokenization]
