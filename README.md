@@ -209,7 +209,6 @@ data/processed/imdb_reviews.csv
 The dataset consists of publicly available movie reviews.  
 No personal identifiers are included. The analysis focuses only on aggregate linguistic patterns and does not attempt to identify or profile individual users.
 
-=======
 
 ## Dataset Structure
 
@@ -223,23 +222,16 @@ Total number of reviews: 50,000
 
 ## Hedonometer Measurement Method
 
-Tokenization
+## Tokenization & Sentiment Pipeline
 
-To prepare the IMDb reviews for analysis, each review was tokenized into individual word tokens. The text was converted to lowercase and split using a regular expression that extracts alphabetical word sequences. This removes punctuation and ensures consistent matching with the sentiment lexicon.
-
-Example:
-
-"This movie was amazing!"
-
-becomes
-
-["this", "movie", "was", "amazing"]
-
-Matching Tokens to the labMT Lexicon
-
-Each token was matched against the labMT 1.0 lexicon, which contains more than 10,000 English words with happiness scores ranging from approximately 1 (very negative) to 9 (very positive).
-
-If a token appears in the lexicon, its corresponding happiness score is retrieved and used in the calculation.
+```mermaid
+graph TD
+A[Raw Review: "This movie was amazing!"] --> B[Tokenization]
+B --> C["Tokens: this, movie, was, amazing"]
+C --> D[Match with labMT Lexicon]
+D --> E["Scores: 5.2, 6.1, 5.0, 7.8"]
+E --> F[Compute Average]
+F --> G[Final Happiness Score]
 
 Example entries from the lexicon:
 
