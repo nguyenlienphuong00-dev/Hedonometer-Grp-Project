@@ -224,14 +224,20 @@ Total number of reviews: 50,000
 
 ## Tokenization & Sentiment Pipeline
 
-```mermaid
-graph TD
-A[Raw Review] --> B[Tokenization]
-B --> C[Word Tokens]
-C --> D[Lexicon Matching]
-D --> E[Happiness Scores]
-E --> F[Average Score]
-F --> G[Final Output]
+
+Raw Review  
+↓  
+Tokenization  
+↓  
+Word Tokens  
+↓  
+Lexicon Matching  
+↓  
+Happiness Scores  
+↓  
+Average Score  
+↓  
+Final Output
 
 Example entries from the lexicon:
 
