@@ -93,7 +93,42 @@ df = pd.read_csv("data/processed/imdb_reviews_scored.csv")
 
 print("Columns:", df.columns)
 
-# create small dataset
+# -------- GRAPH 1 (you already have) --------
+# small dataset barplot
+
+small_df = df.sample(n=100, random_state=42)
+
+# save it
+small_df.to_csv("data/processed/imdb_small.csv", index=False)
+
+print("\nSmall dataset created:", len(small_df))
+
+# compare means
+print("\nMean comparison:")
+print("Full:", df["happiness_score"].mean())
+print("Small:", small_df["happiness_score"].mean())
+
+# compare positive vs negative
+print("\nBy label:")
+print(small_df.groupby("sentiment")["happiness_score"].mean())
+
+import matplotlib.pyplot as plt
+
+# calculate means by sentiment
+means = small_df.groupby("sentiment")["happiness_score"].mean()
+
+# plot
+means.plot(kind="bar")
+
+plt.title("Average Happiness Score by Review Sentiment (Small Dataset)")
+plt.xlabel("Sentiment")
+plt.ylabel("Average Happiness Score")
+
+plt.tight_layout()
+plt.savefig("figures/smaller_dataset_barplot.png")
+plt.show()
+
+#-----
 small_df = df.sample(n=1000, random_state=42)
 
 # save it
@@ -126,30 +161,7 @@ plt.tight_layout()
 plt.savefig("figures/small_dataset_barplot.png")
 plt.show()
 
-# compare full vs small dataset
-full_means = df.groupby("sentiment")["happiness_score"].mean()
-small_means = small_df.groupby("sentiment")["happiness_score"].mean()
-
-import pandas as pd
-comparison = pd.DataFrame({
-    "Full Dataset": full_means,
-    "Small Dataset": small_means
-})
-
-comparison.plot(kind="bar")
-
-plt.title("Full vs Small Dataset: Happiness Scores by Sentiment")
-plt.xlabel("Sentiment")
-plt.ylabel("Average Happiness Score")
-
-plt.xticks(rotation=0)
-plt.ylim(5.6, 6.2)  # 👈 makes differences visible
-
-plt.tight_layout()
-plt.savefig("figures/full_vs_small_comparison.png")
-plt.ylim(5.7, 6.2)
-# plt.show()
-
+# -------- GRAPH 2 --------
 # FULL vs SMALL comparison plot
 full_means = df.groupby("sentiment")["happiness_score"].mean()
 small_means = small_df.groupby("sentiment")["happiness_score"].mean()
