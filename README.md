@@ -295,12 +295,9 @@ In total there were 3299 negative reviews found, which scored higher in happines
 ![Suspicious Reviews Scatter](figures/suspicious_reviews_scatter.png)
 
 ## Suspicious Positive Reviews Word Cloud
-
-This visualization shows frequently used words in reviews labeled as positive but with low happiness scores.
-
 ![Word Cloud](figures/suspicious_positive_wordcloud.png)
 
-This word cloud visualizes the most frequent words in reviews labeled as positive but assigned relatively low happiness scores by the hedonometer. The prominence of words such as good, character, story, and show suggests that these reviews are not strongly enthusiastic, but instead often rely on neutral, descriptive, or mixed evaluative language. This mismatch indicates that a review can receive a positive label while still containing critical, ambiguous, or only moderately positive wording.
+This word cloud highlights the most frequent words in reviews labeled as positive but associated with relatively low happiness scores according to the hedonometer. The prominence of terms such as “good,” “character,” “story,” and “show” suggests that these reviews are not strongly enthusiastic. Instead, they tend to rely on neutral, descriptive, or mixed evaluative language. This pattern indicates a mismatch between sentiment labels and linguistic tone, where reviews can be classified as positive while still containing critical, ambiguous, or only moderately positive expressions.
 
 ## Data visualization
 
