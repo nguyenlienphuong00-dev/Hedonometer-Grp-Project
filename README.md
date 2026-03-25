@@ -7,14 +7,16 @@ This project explores the labMT 1.0 dataset used to measure happiness in English
 
 Research question: 
 
-To what extent do the Hedonometer happiness scores align with the IMDb sentiment labels, and what factors create the gap between them? 
+How well do Hedonometer happiness scores align with IMDb sentiment labels, and what linguistic patterns characterize reviews where the two measures disagree?
+
 
 
 In assignment 1, we focused on labMT 1.0 as an object of study. For this project, we used it as a measurement instrument to evaluate its performance in practice. We choose to apply Hedonometer to the Stanford IMDb Large Movie Review Dataset, which contains 50,000 movie reviews written by real people and were already labeled as either “Positive” or “Negative”. 
 
 We chose this research question for two main reasons. First, movie reviews present a linguistic context that is difficult to interpret with lexical methods. The Hedonometer uses a standard bag of words approach, calculating happiness by looking at words individually. However, people tend to use complex language in their reviews, such as sarcastic words and contextual meanings. This can lead to the difference between the Hedonometer score and the actual sentiment expressed by reviewers. 
 
-Second, moving beyond simply focusing on the accuracy of the Hedonometer, we want to measure the gap between IMDb sentiment labels and the Hedonometer scores, as well as study the cause of this gap. Particularly, we concentrate on factors such as sarcasm and the use of words in movie reviews. By using statistical methods and data visualization, we highlight both strengths and limitations of dictionary-based sentiment tools.     
+Second, moving beyond simply focusing on the accuracy of the Hedonometer, this project aims to examine how well Hedonometer happiness scores align with IMDb sentiment labels. Moreover, we analyze the linguistic patterns that appear in reviews where the two measures disagree. By using statistical methods and data visualization, we highlight both strengths and limitations of dictionary-based sentiment tools in social practices. 
+  
 
 
 
@@ -47,9 +49,11 @@ The least happiness containing words are connotated with death, which has its ow
 IMDb Large Movie Review Dataset
 
 
-The project used the IMDb Movie Review Dataset, consisting of 50,000 reviews in total. To establish clear sentiment labels, Maas et al. (2011) filtered the data based on the users’ original out of 10 star ratings. A review was labeled negative if it scored 4 or lower, and positive if it scored 7 or higher. There is no neutral review in the dataset. The data is evenly split into 25,000 training reviews and 25,000 testing reviews.
+The project used the IMDB Movie Review Dataset, consisting of 50,000 reviews in total. To establish clear sentiment labels, Maas et al. (2011) filtered the data based on the users’ original out of 10 star ratings. A review was labeled negative if it scored 4 or lower, and positive if it scored 7 or higher. There is no neutral review in the dataset. The data is split into 25,000 training reviews and 25,000 testing reviews.
 
-The IMDb dataset is suitable for this research because it provides clear sentiment labels for each user’s review. These labels can be used as a benchmark to evaluate if the Hedonometer happiness scores can produce similar sentiment interpretations. Movie reviews have complex language, such as praise or sarcasm. As the Hedonometer calculates happiness based on isolated word scores, the expressive language in movie reviews helps to examine the ability of the Hedonometer. Then we can identify and analyze the gap between the word average happiness and the sentiment label. 
+The IMDb dataset is suitable for this research because it provides clear sentiment labels for each user’s review. These labels can be used as a benchmark to evaluate if the Hedonometer happiness scores can produce similar sentiment interpretations. Movie reviews have complex language, such as praise or sarcasm. As the Hedonometer calculates happiness based on isolated word scores, the expressive language in movie reviews helps to examine the accuracy of the Hedonometer. Then we can identify and analyze linguistic patterns that appear in reviews where the word average happiness and the sentiment label do not match.
+
+ 
 
 
 3. Method
