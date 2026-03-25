@@ -18,7 +18,8 @@ Second, moving beyond simply focusing on the accuracy of the Hedonometer, we wan
 
 About IDBm Large Movie Review Dataset
 
-The project used the IMDB Movie Review Dataset, consisting of 50,000 reviews in total. The data is evenly split into 25,000 training reviews and 25,000 testing reviews (Maas et al., 2011). This split was chosen by the authors to create a massive dataset. They want to ensure that any measured improvements in accuracy have low statistical variance because 0.1% increase in accuracy is statistically significant (Maas et al., 2011). 
+The project used the IMDB Movie Review Dataset, consisting of 50,000 reviews in total. To establish clear sentiment labels, the data was filtered based on the users’ original out of 10 star ratings (Maas et al., 2011). A review was labeled negative if it scored 4 or lower, and positive if it scored 7 or higher (Maas et al., 2011). There is no neutral review in the dataset (Maas et al., 2011). The data is evenly split into 25,000 training reviews and 25,000 testing reviews (Maas et al., 2011). This split was chosen by the authors to create a massive dataset. They want to ensure that any measured improvements in accuracy have low statistical variance because 0.1% increase in accuracy is statistically significant (Maas et al., 2011). 
+
 
 This dataset is created to train their custom word vector model designed to encode both the semantic meaning and sentiment of English words. Once the text was converted into the math, the authors used the output to train a linear Support Vector Machine classifier (SVM). The classifier then makes predictions of whether a review was positive or negative.       
 
