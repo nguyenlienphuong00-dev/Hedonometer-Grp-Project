@@ -14,14 +14,7 @@ In assignment 1, we focused on labMT 1.0 as an object of study. For this project
 
 We chose this research question for two main reasons. First, movie reviews present a linguistic context that is difficult to interpret with lexical methods. The Hedonometer uses a standard bag of words approach, calculating happiness by looking at words individually. However, people tend to use complex language in their reviews, such as sarcastic words and contextual meanings. This can lead to the difference between the Hedonometer score and the actual sentiment expressed by reviewers. 
 
-Second, moving beyond simply focusing on the accuracy of the Hedonometer, we want to measure the gap between IMDb sentiment labels and the Hedonometer scores, as well as study the cause of this gap. Particularly, we concentrate on factors such as sarcasm and the use of words in movie reviews. By using statistical methods and data visualization, we highlight both strengths and limitations of dictionary-based sentiment tools.
-
-IMDb Large Movie Review Dataset
-
-The project used the IMDb Movie Review Dataset, consisting of 50,000 reviews in total. To establish clear sentiment labels, the data was filtered based on the users’ original out of 10 star ratings (Maas et al., 2011). A review was labeled negative if it scored 4 or lower, and positive if it scored 7 or higher (Maas et al., 2011). There is no neutral review in the dataset (Maas et al., 2011). The data is evenly split into 25,000 training reviews and 25,000 testing reviews (Maas et al., 2011). This split was chosen by the authors to create a massive dataset. They want to ensure that any measured improvements in accuracy have low statistical variance because 0.1% increase in accuracy is statistically significant (Maas et al., 2011). 
-
-
-This dataset is created to train their custom word vector model designed to encode both the semantic meaning and sentiment of English words. Once the text was converted into the math, the authors used the output to train a linear Support Vector Machine classifier (SVM). The classifier then makes predictions of whether a review was positive or negative.       
+Second, moving beyond simply focusing on the accuracy of the Hedonometer, we want to measure the gap between IMDb sentiment labels and the Hedonometer scores, as well as study the cause of this gap. Particularly, we concentrate on factors such as sarcasm and the use of words in movie reviews. By using statistical methods and data visualization, we highlight both strengths and limitations of dictionary-based sentiment tools.     
 
 
 
