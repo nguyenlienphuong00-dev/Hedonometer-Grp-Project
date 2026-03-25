@@ -5,6 +5,25 @@
 
 This project explores the labMT 1.0 dataset used to measure happiness in language. Using Python, we analyze the distribution of happiness scores, disagreement between raters, and differences in word usage across several text corpora such as Twitter, Google Books, the New York Times, and song lyrics. By combining quantitative analysis with qualitative interpretation, we examine how emotional meaning is reflected in everyday language.
 
+Research question: 
+
+To what extent do the Hedonometer happiness scores align with the IMDb sentiment labels, and what factors create the gap between them? 
+
+
+In assignment 1, we focused on labMT 1.0 as an object of study. For this project, we used it as a measurement instrument to evaluate its performance in practice. We choose to apply Hedonometer to the Stanford IMDb Large Movie Review Dataset, which contains 50,000 movie reviews written by real people and were already labeled as either “Positive” or “Negative”. 
+
+We chose this research question for two main reasons. First, movie reviews present a linguistic context that is difficult to interpret with lexical methods. The Hedonometer uses a standard bag of words approach, calculating happiness by looking at words individually. However, people tend to use complex language in their reviews, such as sarcastic words and contextual meanings. This can lead to the difference between the Hedonometer score and the actual sentiment expressed by reviewers. 
+
+Second, moving beyond simply focusing on the accuracy of the Hedonometer, we want to measure the gap between IMDb sentiment labels and the Hedonometer scores, as well as study the cause of this gap. Particularly, we concentrate on factors such as sarcasm and the use of words in movie reviews. By using statistical methods and data visualization, we highlight both strengths and limitations of dictionary-based sentiment tools.
+
+About IDBm Large Movie Review Dataset
+
+The project used the IMDB Movie Review Dataset, consisting of 50,000 reviews in total. The data is evenly split into 25,000 training reviews and 25,000 testing reviews (Maas et al., 2011). This split was chosen by the authors to create a massive dataset. They want to ensure that any measured improvements in accuracy have low statistical variance because 0.1% increase in accuracy is statistically significant (Maas et al., 2011). 
+
+This dataset is created to train their custom word vector model designed to encode both the semantic meaning and sentiment of English words. Once the text was converted into the math, the authors used the output to train a linear Support Vector Machine classifier (SVM). The classifier then makes predictions of whether a review was positive or negative.       
+
+
+
 2. Dataset and data dictionary
 
 We used df_read.csv to read the txt. file into a pandas dataframe, removed metadata and converted it the file into a csv, putting a desired path destination which is data/processed.
