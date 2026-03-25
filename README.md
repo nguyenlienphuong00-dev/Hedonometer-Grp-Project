@@ -300,6 +300,8 @@ This visualization shows frequently used words in reviews labeled as positive bu
 
 ![Word Cloud](figures/suspicious_positive_wordcloud.png)
 
+This word cloud visualizes the most frequent words in reviews labeled as positive but assigned relatively low happiness scores by the hedonometer. The prominence of words such as good, character, story, and show suggests that these reviews are not strongly enthusiastic, but instead often rely on neutral, descriptive, or mixed evaluative language. This mismatch indicates that a review can receive a positive label while still containing critical, ambiguous, or only moderately positive wording.
+
 ## Data visualization
 
 To answer our research question, we created a boxplot to have a better data visualization for interpretation. It illustrates a comparison of the distribution of the happiness scores across IMDb reviews. First, the Hedonometer is accurate as you can see that the median happiness score for positive reviews (around 6.2) is higher than negative reviews (around 5.8). This shows that positive reviews have words with higher happiness value. 
