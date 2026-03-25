@@ -5,7 +5,9 @@
 
 This project explores the labMT 1.0 dataset used to measure happiness in language. Using Python, we analyze the distribution of happiness scores, disagreement between raters, and differences in word usage across several text corpora such as Twitter, Google Books, the New York Times, and song lyrics. By combining quantitative analysis with qualitative interpretation, we examine how emotional meaning is reflected in everyday language.
 
-Research question: To what extent do the Hedonometer happiness scores align with the IMDb sentiment labels, and what factors create the gap between them? 
+Research question: 
+
+To what extent do the Hedonometer happiness scores align with the IMDb sentiment labels, and what factors create the gap between them? 
 
 
 In assignment 1, we focused on labMT 1.0 as an object of study. For this project, we used it as a measurement instrument to evaluate its performance in practice. We choose to apply Hedonometer to the Stanford IMDb Large Movie Review Dataset, which contains 50,000 movie reviews written by real people and were already labeled as either “Positive” or “Negative”. 
