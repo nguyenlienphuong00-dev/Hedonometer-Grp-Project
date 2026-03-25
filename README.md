@@ -294,6 +294,12 @@ In total there were 3299 negative reviews found, which scored higher in happines
 
 ![Suspicious Reviews Scatter](figures/suspicious_reviews_scatter.png)
 
+## Suspicious Positive Reviews Word Cloud
+
+This visualization shows frequently used words in reviews labeled as positive but with low happiness scores.
+
+![Word Cloud](figures/suspicious_positive_wordcloud.png)
+
 ## Data visualization
 
 To answer our research question, we created a boxplot to have a better data visualization for interpretation. It illustrates a comparison of the distribution of the happiness scores across IMDb reviews. First, the Hedonometer is accurate as you can see that the median happiness score for positive reviews (around 6.2) is higher than negative reviews (around 5.8). This shows that positive reviews have words with higher happiness value. 
