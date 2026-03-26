@@ -123,7 +123,8 @@ In spite of the miscalculation, we can observe in the combined mean distribution
 
 However, when we run a close-up sample of 1,000 reviews, a different pattern emerges. It can be seen that positive and negative reviews heavily overlap. Significantly, there are some negative reviews that score higher than the positive reviews and vice versa. The Hedonometer scores do not align with their sentiment labels, resulting in heavy overlap between average happiness score and sentiment labels.
 
-WORDCLOUD
+WORDCLOUD:
+
 To take a closer look at the content of both types of suspicious reviews, we created a word cloud from 1,000 randomly sampled reviews that scored either above the mean of negative reviews (if positive) or below the mean of positive reviews (if negative).
 
 <img width="1200" height="600" alt="suspicious_positive_wordcloud" src="https://github.com/user-attachments/assets/5d755193-15c5-408c-aa08-4c811b71ed45" />
