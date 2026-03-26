@@ -1,336 +1,147 @@
+Table of contents:
+- Project backstory, Provenance and Data acquisition
+- Research question
+- Technical pipeline 
+- Methodology: Tokenization and Filtering
+- Sampling plan and Bootstrap results
+- Limitations 
+- AI disclosure
 
-# Hedonometer-Grp-Project
+Project backstory, Provenance and Data acquisition
 
-1. Happiness According to Mechanical Turks: Exploring the Hedonometer Dataset
+​​The Backstory: Lexicon Exploration (labMT 1.0) 
+Our research started off with an in-depth exploration of the labMT 1.0 dataset, while doing this we treated the lexicon itself as our primary object of study. By reconstructing the biography of its 10,222 words, we were able to identify the tensions within crowd-sourced sentiment. To be more specific, we analyzed contested terms with high rater disagreement, some examples of this are fucking, whiskey, and capitalism, which revealed how emotional meaning is often split by cultural, political, or age-related perspectives.
 
-This project explores the labMT 1.0 dataset used to measure happiness in language. Using Python, we analyze the distribution of happiness scores, disagreement between raters, and differences in word usage across several text corpora such as Twitter, Google Books, the New York Times, and song lyrics. By combining quantitative analysis with qualitative interpretation, we examine how emotional meaning is reflected in everyday language.
+Reference: Dodds, Peter Sheridan, Kameron Decker Harris, Isabel M. Kloumann, Catherine A. Bliss, and Christopher M. Danforth. “Temporal Patterns of Happiness and Information in a Global Social Network: Hedonometrics and Twitter.” PLoS ONE 6, no. 12 (December 7, 2011): e26752. https://doi.org/10.1371/journal.pone.0026752.
 
-Research question: 
+Understanding these internal disagreements was of great importance before transitioning to using the Hedonometer as a measurement instrument. With this foundational knowledge of the lexicon’s strengths and biases, we moved from the theory of the lexicon to its application in a large-scale dataset.
 
- How well do Hedonometer happiness scores align with IMDb sentiment labels, and what linguistic patterns characterize reviews where the two measures disagree?
- 
+The Provenance: IMDb Large Movie Review Dataset
 
-In assignment 1, we focused on labMT 1.0 as an object of study. For this project, we used it as a measurement instrument to evaluate its performance in practice. We choose to apply Hedonometer to the Stanford IMDb Large Movie Review Dataset, which contains 50,000 movie reviews written by real people and were already labeled as either “Positive” or “Negative”. 
+Within this project, the IMDb Movie Review Dataset was used. This dataset consists of 50,000 reviews in total. Regarding the provenance of this data, it was originally collected and curated by Maas et al. (2011) from the Stanford AI Lab. To establish clear sentiment labels, Maas et al. (2011) filtered the data based on the users’ original out of 10-star ratings. A review was labeled negative if it scored 4 or lower, and positive if it scored 7 or higher. There is no neutral review in the dataset. The data is split into 25,000 training reviews and 25,000 testing reviews. The split of “testing” and “training” category is created to train their custom Word Vector Model and Linear Support Vector Machine (SVM) (Maas et al, 2011). Because we use the dataset for data visualization and exploratory analysis, this split does not affect our research. 
 
-We chose this research question for two main reasons. First, movie reviews present a linguistic context that is difficult to interpret with lexical methods. The Hedonometer uses a standard bag of words approach, calculating happiness by looking at words individually. However, people tend to use complex language in their reviews, such as sarcastic words and contextual meanings. This can lead to the difference between the Hedonometer score and the actual sentiment expressed by reviewers. 
+Maas, Andrew. “Sentiment Analysis,” n.d. https://ai.stanford.edu/~amaas/data/sentiment/.
 
-Second, moving beyond simply focusing on the accuracy of the Hedonometer, we want to measure the gap between IMDb sentiment labels and the Hedonometer scores, as well as study the cause of this gap. Particularly, we concentrate on factors such as sarcasm and the use of words in movie reviews. By using statistical methods and data visualization, we highlight both strengths and limitations of dictionary-based sentiment tools.     
+Application and Suitability By comparing the lexicon's average happiness scores against these ground-truth movie ratings, we aimed to identify where the tool succeeds as a so called remote sensor of sentiment and where linguistic complexity, such as sarcasm or descriptive prose, causes the bag-of-words approach to fail. The IMDb dataset is suitable for this research because it provides clear sentiment labels for each user’s review. These labels can be used as a benchmark to evaluate if the Hedonometer happiness scores can produce similar sentiment interpretations. As the Hedonometer calculates happiness based on isolated word scores, the complex language, such as sarcasm, in movie reviews helps to examine the accuracy of the Hedonometer. Then we can identify and analyze linguistic patterns that appear in reviews where the word average happiness and the sentiment label do not match.
+Data acquisition pipeline:
 
+Research Question: How well do Hedonometer happiness scores align with IMDb sentiment labels, and what linguistic patterns characterize reviews where the two measures disagree?
 
+Technical pipeline:
+Data provenance:
 
-2. Dataset and data dictionary
+Measurement:
 
-We used df_read.csv to read the txt. file into a pandas dataframe, removed metadata and converted it the file into a csv, putting a desired path destination which is data/processed.
-   
-The dataset contains 8 columns and 10,222 rows excluding the header. Each of last four columns (twitter_rank, google_rank, nyt_rank_lyrics) have 5222 values missing: Dodds et al. clarify that they only ranked the top 5000 frequent words, hence the missing values.
+Inference: 
 
+Tokenization and Word Processing
 
-- word: what word is being rated/inspected (string)
-- happiness_rank: ranking from indicating most happiness to least (integer)
-- happiness_average: the average score of how close to 'happiness' the word is, made by AMT (float)
-- happienss_standard_deviation: how much disagreement there is to this crowd-sourced ranking from the rest of the crowd (float)
-- twitter_rank: frequency ranking (float)
-- google_rank: frequency ranking (float)
-- nyt_rank: frequency ranking (float)
-- lyrics: frequency ranking (float)
+To prepare the IMDb reviews for analysis, we first tokenized the text into individual words. Each review was converted to lowercase so that words like “Good” and “good” are treated the same. We then used a regular expression to extract only alphabetical words, removing punctuation and other symbols.
 
+For example, the sentence:
+- "This movie was amazing!"
+becomes:
+- ["this", "movie", "was", "amazing"]
+This step is important because it standardizes the text and allows us to match words consistently with the sentiment lexicon.
 
-Regarding data quality, there are no duplicates and the word format (spacing, lowercase) stays consistent. Word selection seems to encompass wide spectrum of meanings - every day objects, terminology, verbs, adjectives, material and abstract etc. Although, there are no duplicates, half of the top 10 happiness-indicating words stem from the core 'laugh': verb - base, continous, past forms - and the noun. One could view this as a downgrade to the data quality, however, as deviations of the same core hold differing scores, one can argue they might hold some relevance to their perception
 
-Most of the top ten 'happiness' words are unarguably ones we would expect. Interestingly, laughter tops the word happiness itself, perhaps because of it being an act embodying the feeling, affording us to give it a material reality. 
-The least happiness containing words are connotated with death, which has its own happiness score. Interestingly, suicide ranks higher in negativity than other forms/directions of killing. Personally, I also understand that rape is ranked to be more negative than acts of killing due to its gruesome nature.
+Filtering and Cleaning Words
 
-Most of the top ten 'happiness' words are unarguably ones we would expect. Interestingly, laughter tops the word happiness itself, perhaps because of it being an act embodying the feeling, affording us to give it a material reality. 
-The least happiness containing words are connotated with death, which has its own happiness score. Interestingly, suicide ranks higher in negativity than other forms/directions of killing. Personally, I also understand that rape is ranked to be more negative than acts of killing due to its gruesome nature.
+When we initially analyzed word frequencies, the most common words were not very meaningful (e.g., “this,” “one,” “”). These are common function words that appear frequently in language but do not carry sentiment.
 
+To address this, we applied several filtering steps:
+Removed standard stopwords such as “the,” “and,” and “have”
+Removed additional high-frequency but uninformative words like “one,” “very,” and “people”
+Excluded domain-specific words such as “movie” and “film,” which are common in reviews but do not reflect sentiment
 
-IMDb Large Movie Review Dataset
 
+Focusing on Emotional Words
+To make the analysis more meaningful, we focused only on words with strong emotional content. Using the labMT scores, we kept words with happiness values ≤ 4 (negative) or ≥ 6 (positive), and excluded neutral words.
+This helped remove generic or neutral terms and highlight words that actually express sentiment.
 
-The project used the IMDb Movie Review Dataset, consisting of 50,000 reviews in total. To establish clear sentiment labels, Maas et al. (2011) filtered the data based on the users’ original out of 10 star ratings. A review was labeled negative if it scored 4 or lower, and positive if it scored 7 or higher. There is no neutral review in the dataset. The data is evenly split into 25,000 training reviews and 25,000 testing reviews.
 
-The IMDb dataset is suitable for this research because it provides clear sentiment labels for each user’s review. These labels can be used as a benchmark to evaluate if the Hedonometer happiness scores can produce similar sentiment interpretations. As the Hedonometer calculates happiness based on isolated word scores, the complex language in movie reviews helps to examine the ability of the Hedonometer. Then we can identify and analyze the gap between the word average happiness and the sentiment label. 
 
+Word Frequency Analysis
+After cleaning the data, we computed the most frequent emotional words in the dataset. The final visualization shows words such as “good,” “bad,” “great,” and “love,” which better reflect how users express positive and negative opinions in reviews.
+This approach provides a clearer view of the emotional language used in IMDb reviews and aligns with the goal of analyzing sentiment using the hedonometer.
 
-3. Method
 
-Loading and cleaning the dataset:
 
-Skiprows were used in order to leave out top columns containing metadata. In order to convert all columns into numeric types, we used na_values and listed "--" to be perceived as Not a Number (NaN) because up until then "--" was not recognized as a NaN and the system thus perceived the columns as object dtype. By using df.info() and df.isna().sum(), the results are going to show us non-null count - not empty values -, dtype, and amount of missing values in each column.
+Sampling Plan and Results
+The dataset contains equal amounts of training, testing, positive, and negative reviews. The train/test category is present for model training, which is why we decided to not work with this category and view the dataset purely from sentiment and happiness score aspects. Sampling was done in these parts of the repository:
 
-Tools and Libraries:
+For our research, we want to make inferences on a population, which we defined as the IMDb dataset. We did not choose all reviews on the internet as our population, because our dataset does not include ‘neutrally sentiment’ reviews and our research question draws on reviews in the IMDb dataset, which were by humans chosen to be sentimentally strong.
 
-- Python
-- Pandas
-- Matplotlib
-- Seaborn
+Via this pathway, we want to show our approach. To calculate the mean score of positive and negative reviews by using bootstrap, we resampled sample size of n=1000 one thousand times with replacement. Within the bootstrap we also investigated whether "rule-breaking" reviews exist - negative reviews with happiness scores above the positive mean, and positive reviews with happiness scores below the negative mean. 
 
 
-4. Result
-   
-4.1. Distribution of Happiness Scores.
+	Mean happiness scores of negative/positive reviews and the difference
 
-<img width="1000" height="600" alt="histogram" src="https://github.com/user-attachments/assets/0bb49420-b830-4d41-80d0-f9345c3e5dc6" />
+We can be 95% confident that positive reviews score on average 6.116 [6.095, 6.136]while negative 5.750 [[5.728, 5.772]. For clarity purposes, the main results are visualized in a table:
 
-Figure 4.1 The distribution historgam of Happiness Scores. 
 
-| Statistic | Value |
-|-----------|-------|
-| Mean happiness score | 5.38 |
-| Median happiness score | 5.44 |
-| Standard deviation | 1.08 |
-| 5th percentile | 3.18 |
-| 95th percentile | 7.08 |
 
-Interpretation: 
-Looking at the histogram, the happiness scores are slightly above neutral with the highest concentration of words between 5 and 6. The mean (5.38) and the median (5.44) are close, showing a symmetric distribution. As the mean is smaller than the median and the left tail is longer than the right one, the distribution is mild left skew. The left long tail of negative scores also pull the overall average down. Moreover, with the highest density between 4.5 and 6.5 scores, the histogram indicates that many words in labMT 1.0 are considered neutral or moderately positive.
+The estimated difference-mean 0.367 indicates there is a difference of happiness between positive and negative reviews. However, the difference is not big, considering the scale range of the Hedonometer being 8 - this means the estimate has a significance of 4.59% within the scale range. 
+The standard deviations of mean positive and negative score and difference moves around 0.01. This means our estimates do not have big variability and are stable.
+SUSPICIOUS REVIEWS
+Regarding rule-breaking reviews, our plots showcase an estimate mean of 132.6 suspicious negative and 136.9 suspicious negative reviews. The suspicious reviews are thus consistently present.
 
-The surprising pattern is that no word gets an absolute score such as 1 or 9. It is interesting that out of numerous words, people were unable to agree on any words that are absolutely positive or negative. The interpretation of words depends on context or cultural background, which leads individuals to perceive the same words in different ways. Therefore, the rating scores from many participants seem to be neutral in labMT 1.0. 
 
 
-4.2 Top 5 contested words.
 
-| word        | happiness_average | happiness_standard_deviation |
-|-------------|------------------|------------------------------|
-| fucking     | 4.64             | 2.9260                       |
-| pussy       | 4.80             | 2.6650                       |
-| whiskey     | 5.72             | 2.6422                       |
-| capitalism  | 5.16             | 2.4524                       |
-| mortality   | 4.38             | 2.5546                       |
 
-Interpretation: 
-- 'Fucking' is considered highly negative and aggressive in its meaning. Some people use it to curse or swear at other people, so it gets a low score. However, in modern society, it is also used as a positive intensifier to express an individual's feelings such as "This is fucking amazing!". Therefore, young teenagers rate this word with high score, creating a massive contradiction in data.
 
-- The reason for the disagreement over 'Pussy' is that it has various conflicting meanings. According to English dictionaries, it can be a harmless word for a cat. Otherwise, it can have vulgar slang meanings, such as a woman's genital or a weak and cowardly man. With each meaning that has different scores, this word becomes controversial.
+Originally, we planned on combining the positive and negative mean distribution in hopes of seeing an overlap to indicate presence of suspicious reviews. However, this expectation was a miscalculation on our part and the result turned out to be different because the mean distribution, as said in its name, is a calculation of averages and not of individual reviews themselves. 
 
-- 'Whiskey' has many disagreements due to differences in culture. Many individuals consider whiskey a drink for entertainment, relaxation, and socialization, so they rate it with a positive score. While the others associate whiskey with alcoholism and destructive behaviors, giving it a low score. 
+In spite of the miscalculation, we can observe in the combined mean distribution a clear and significant divergence between two sentiment categories with zero overlap, including the clear distinction of the confidence intervals. This demonstrates that positive reviews score higher on the Hedonometer than negative reviews. As a result, the sentiment labels match with the average happiness score. It can be seen that the Hedonometer is a powerful tool for measuring massive datasets.
 
-- The word 'Capitalism' is a political and economic term. It creates a controversial conversation because of the distinction in ideologies among individuals. Depending on the rater's politics, it can refer to wealth, freedom and innovation or greed, poverty and inequality.
 
-- 'Mortality' is chosen to be in the top 5 of contested words in data. For some people, mortality can bring them many benefits such as long life, power and experience. They will give a high score to this word. However, the others link this word with loneliness, death and loss. They think when they become mortal, they have to watch their beloveds die. This leads to a low score. The opposite perspectives creates the contradictory data.
 
-<img width="1000" height="600" alt="scatterplot" src="https://github.com/user-attachments/assets/cef0f72e-f820-45cc-83d3-da9d621c13f6" />
+However, when we run a close-up sample of 1,000 reviews, a different pattern emerges. It can be seen that positive and negative reviews heavily overlap. Significantly, there are some negative reviews that score higher than the positive reviews and vice versa. The Hedonometer scores do not align with their sentiment labels, resulting in heavy overlap between average happiness score and sentiment labels.
 
-Figure 4.2. The scatterplot of Happiness Scores.  
+WORDCLOUD
+To take a closer look at the content of both types of suspicious reviews, we created a word cloud from 1,000 randomly sampled reviews that scored either above the mean of negative reviews (if positive) or below the mean of positive reviews (if negative).
+Comparisons of suspicious positive & negative reviews: (replace this one with old one in the github)
+Comparing the two word clouds shows a clear difference in how mismatches happen. Suspicious positive reviews mostly use neutral and descriptive words and do not include many strongly positive terms. In contrast, suspicious negative reviews often mix negative and positive language, where some praise appears together with criticism. This means that mismatches occur in different ways for the two groups. For positive reviews, mismatches happen in different ways for the two groups. For positive reviews, mismatches are mainly caused by weak or driven by weak or limited positive language. For negative reviews, they are caused by the use of mixed or partly positive expressions. Overall, this comparison shows that the hedonometer reacts strongly to clearly positive or negative words, but it does not capture more subtle meanings that depend on context or sentence structure.
 
-Connecting qualitative interpretation to quantitative pattern:
 
-In the scatterplot, the data forms a flower shape, which reflects the variety of agreement and disagreement in different ranges of the scores. First, looking at the left and right edges of the plot, the small density of points clusters around low standard deviation. This means that words with very low and high average happiness scores have a tendency to have a significant agreement among participants. For example, to achieve a high score such as 8.5, every individual needs to rate 8.0 or 9.0 for that word.
 
 
-Second, the highest points of standard deviation cluster around the center of the X-axis, between 4.0 and 6.0 scores. These words are considered controversial, because people interpret their meanings differently. Some participants give them low scores, while the others rate them with high scores. These opposite ratings are averaged together; therefore, the results appear to be neutral but produce a high standard deviation. 
+Limitations
+The method relies on a predefined lexicon (labMT), which means that any words not included in the dataset are ignored. This can lead to a loss of meaning, especially when important descriptive words are missing from the lexicon.
+The analysis treats text as a collection of individual words (a “bag-of-words” approach), meaning that context is not considered. As a result, phrases like “not good” may be incorrectly interpreted as positive because the word “good” is included without accounting for negation.
+The filtering process, while necessary, may remove some relevant words. For example, excluding common or domain-specific words like “movie” and “film” improves clarity, but also removes part of the natural structure of reviews.
+Although focusing on emotionally strong words improves interpretability, it simplifies the data by removing neutral language. This means the analysis captures general sentiment trends rather than the full nuance of how people express opinions.
 
-Finally, the dense clusters of points are in the bottom center of the plot, between 5.0 and 6.0 scores. These words are neither strongly negative nor strongly positive to the participants, so they gave scores around the middle of the scale. Despite the variation in individuals’ opinions, the disagreement is moderate, leading to both average happiness scores and mid-range standard deviation.
+AI-use disclosure:
+AI Disclosure and Statement of Use
+We disclose the use of Large Language Models (LLMs), specifically Gemini Pro (Google), DeepSeek, and ChatGPT (OpenAI), as supporting tools used throughout making this project. We used different AI-models for the following reasons:
+Logic and Debugging, DeepSeek a ChatGPT: We utilized DeepSeek and ChatGPT to assist in writing Python scripts for data cleaning and to optimize the looping logic for the 1,000x bootstrap resampling. These tools helped troubleshoot syntax errors and ensure computational efficiency.
+Structural Organization and Communication, Gemini Pro: Gemini Pro was used to help brainstorm the Backstory narrative in order to make the project coherent and to organize our README into a professional, scannable format.
+Data Interpretation and Synthesis: While AI suggested ways to visualize our results (explaining the difference between frequency and density), all final interpretations, the identification of contested words, and the analysis of the 13.5% sentiment overlap are the original intellectual work of the student team.
+Content Refining: AI acted as a peer editor to ensure grammatical correctness and clarity in our written documentation.
 
+Roles
 
-4.3 Corpus Comparison
+Mila: readme
+Ran: tokenization, analyzing suspicious reviews, interpreting limitations
+Grace:
+Quynh: Dataset clarification, interpretation of random sample and bootstrapping distribution histogram.
+Petra: Sampling and Inference plots
 
-![Corpus comparison](figures/corpus_counts.png)
 
-Each corpus contributes 5,000 words to the labMT dataset, but the overlap between them is limited. Only 1,816 words appear in all four corpora, and 2,881 words overlap between Twitter and the New York Times. This shows that “common language” depends on the source.
 
-The bar chart shows that each corpus contributes 5,000 words, but the overlap calculations reveal that many of these words are not shared across corpora. Twitter reflects current public conversation, while Google Books represents language across long historical periods.
 
-One example is the word “republicans.” It appears in Twitter’s top 5,000 words but not in Google Books. This likely reflects the immediacy of political discussion on social media. In contrast, Google Books averages language over many decades, where specific contemporary party references are less dominant.
 
 
-5. Qualitative exploration
 
-5.1 Word exhibit (20 selected words)
+The Data Provenance Pipeline
+Use this in the Data Acquisition section to show how you handled the 50,000 reviews 
 
-| Word | Category | Explanation |
-|------|----------|-------------|
-| laughter | very positive | associated with joy and social bonding |
-| happiness | very positive | represents a positive emotional state |
-| love | very positive | universal symbol of affection |
-| joy | very positive | expresses strong happiness |
-| smile | very positive | linked to positive emotions |
-| death | very negative | associated with loss and fear |
-| suicide | very negative | connected to tragedy and despair |
-| rape | very negative | represents violence and trauma |
-| killing | very negative | associated with violence |
-| murder | very negative | strongly negative violent act |
-| fucking | highly contested | insult but also positive intensifier |
-| pussy | highly contested | cat vs vulgar slang |
-| whiskey | highly contested | leisure vs alcoholism |
-| capitalism | highly contested | political ideology interpreted differently |
-| mortality | highly contested | philosophical vs negative meaning |
-| republicans | culturaly loaded | political identity word |
-| religion | cultural loaded| faith vs conflict interpretations |
-| money | cultural loaded| wealth vs greed |
-| freedom | cultural loaded| positive but politically contested |
-| power | cultural loaded | authority vs oppression |
-
-5.2 Interpretation
-
-The selected words highlight that the way people feel about words depends heavily on context and culture. Words such as 'laughter', 'love', and 'joy' have high happiness scores because they are usually connected to positive feelings and social interaction. 
-In contrast, words like 'death', 'suicide' and 'rape' have very low happiness scores since they are related to violence, loss and suffering. However, some words have evry different meanings for different people. Words such as 'fucking', 'pussy' show how the meaning of the word can change depending on the situation and the group of people using it. 
-As an example, 'fucking' can be used as an insult, but it can also be used to strongly emphasize something positive, like in the phrase 'this is fucking amazing'. Political and cultural words such as 'capitalism', 'religion' and 'republicans' can also cause disagreement. People may understand these words in various ways depending on their political views, culture, or personal experiences. This illustartes that the emotional meaning of words is not fixed and can change depending on who is using them and in what context. These observations also match the quatitative results. Words with very high or very low happiness scores usually have less disagreement between people. 
-In contrast, highly contested words are often located in the middle of the happiness scale and show higher disgreement. This pattern can also be seen in the scatterplot, where disagreement is highest around neutral happiness scores.
-
-6. Critical reflection: how was this dataset generated, and why does it matter?
-
-6.1 
-In order to understand the labMT 1.0 dataset, it is important for us to reconstruct its "biography", the specific sequence of steps that transformed raw, organic language into a well curated set of mathematical scores. This process began with the selection of four diverse sources of English text to ensure a broad and correct representation of language: Twitter was chosen for it’s social, in-the-moment expressions, Google Books was chosen for it’s historical and literary context, the New York Times for it’s institutional news and lastly Music Lyrics for pop culture and more emotional depth. Rather than choosing words based on their prior emotional definitions, the authors gathered the top 5,000 most frequent words from each source. This resulted in a union of 10,222 unique words, ensuring the instrument measured the actual language people use in daily life.
-Following the creation of this word list, the authors used Amazon’s Mechanical Turk to get human evaluations. Every word was rated by 50 participants on a scale of 1 to 9, aided by stylized faces representing a spectrum from sad to happy. These evaluations were averaged to create the final havg score for each word, along with a standard deviation to track rater disagreement. To refine the instrument, the authors intituted a "neutral zone" filter, signifyed as Δhavg, which keeps out emotionally neutral words that function as what could be named "noise" in the data. Through rigorous trials, they determined that Δhavg=1, removing the words with scores between 4 and 6, provided the perfect middle ground between instrument sensitivity and the text coverage.
-
-6.2 
-The design choices made while making the creation of the Hedonometer have significant consequences for what the instrument is both able and not able to see. By building the word list solely on usage frequency, the authors made a tool that is great at measuring the "ambient" mood of a general population but lacks the resolution to detect rare, highly specific emotional triggers. For instance, common function words like "the" and "of" are included due to their frequency, despite being emotionally neutral, while rare but potent words may be excluded entirely.
-Furthermore, the "bag-of-words" simplification, where the algorithm treats text as a collection of individual words while ignoring grammar, negation and order of the words, means that crucial context is lost. This makes the instrument fallible when analyzing small texts, such as single sentences, where it is not able to distinguish the difference between "happy" and "not happy". There is also a distinct "snapshot in time" limitation, for example because ratings were collected in 2011, the emotional associations are treated as static, failing to take into account how meanings can differ over time. A good example is the word "lost," which received a quite low happiness score partly because of its frequency spiked during the airing of a popular television show's finale rather than reflecting a general societal depression.
-Finally, the instrument must take into account the inherent positivity bias of the English language. Because humans usually try to use more positive words rather than negative ones in natural corpora, a mathematically "neutral" score of 5.0 is actually below the true linguistic average. This bias is visible in the distribution of word scores, which skews significantly toward the right. Also, the choice to avoid "stemming", counting "love" and "loved" as different entries, preserves nuance but can result in inconsistent scoring for the same concept. For example, the verb "have" and its past tense "had" have quite different happiness scores, this likely reflects the types of sentences they are used in rather than a shift in the word's fundamental meaning.
-
-6.3 
-If we would deploy the labMT 1.0 Hedonometer today, we would do so with significant caveats regarding its validity and scope. We trust this instrument to measure macro-scale, exhibited tone in massive datasets where the volume of words outweighs the errors found in individual sentences. It would remain to be a powerful "remote sensor" for identifying the collective emotional footprint of global events, such as for example holidays or disasters, seeing as they are reflected in written public expression. However, we refuse to use this dataset to assess the mental health of individuals or to make claims about "inner" emotional states, as the "bag-of-words" approach is too crude for actual clinical application. To modernize the instrument for 2026, we would recommend to incorporate n-grams to capture negation and implementing dynamic updates to word scores to reflect on and see how modern slang and cultural meanings have been able to evolve since the original 2011 survey.
-
-7. How to run your code.
-   
-Set up steps:
-
-Before running the project, you must install the required Python libraries to handle data and draw the chart.
-
-- Open your terminal.
-- Installed required packages: pandas, matplotlib, requirement.txt.
-
-Scripts to run:
-- In your terminal, you need to be inside the src folder. 
-- This project is divided into four separate Python files:
- The 1_attempt file loads the file, creates the data dictionary, and performs sanity checks.
- The distributions_disagreement_of_happiness_score file generates the histogram and scatterplot visualizations. 
- The Corpus_comparison file produces the corpus comparison chart.
-Word_exhibit shows the exhibition of the 20 words selected across categories. 
-
-
-8. Credits.
-   
-Reference :
-Dodds, Peter Sheridan, Kameron Decker Harris, Isabel M. Kloumann, Catherine A. Bliss, and Christopher M. Danforth. “Temporal Patterns of Happiness and Information in a Global Social Network: Hedonometrics and Twitter.” PLoS ONE 6, no. 12 (December 7, 2011): e26752. https://doi.org/10.1371/journal.pone.0026752.
-
-Who did what roles:
-Lien Phuong: 2
-Quynh Nguyên: 3, 4.1, 4.2, 7
-Ran Kim: 1, 4.3
-Seo Yeon Kim: 5
-Mila Clausen: 6.1, 6.2, 6.3
-
-Part 2
-## Data Acquisition
-
-This project uses the IMDB Large Movie Review Dataset.
-
-Source:
-https://ai.stanford.edu/~amaas/data/sentiment/
-
-The dataset contains 50,000 movie reviews labeled as positive or negative.
-
-The raw dataset was downloaded and processed using a Python script:
-src/fetch_imdb.py
-
-This script converts the raw IMDB text files into a structured CSV dataset.
-
-The processed dataset is saved as:
-data/processed/imdb_reviews.csv
-
-## Ethical Considerations:
-The dataset consists of publicly available movie reviews.  
-No personal identifiers are included. The analysis focuses only on aggregate linguistic patterns and does not attempt to identify or profile individual users.
-
-
-## Dataset Structure
-
-The processed dataset contains the following columns:
-
-split – indicates whether the review belongs to the training or test set  
-sentiment – the review label (pos or neg)  <- neg: 0-4/10, pos: 7-10/10 based on the stanford paper
-review – the full text of the movie review  
-
-Total number of reviews: 50,000
-
-## Hedonometer Measurement Method
-
-## Tokenization & Sentiment Pipeline
-
-
-Raw Review  
-↓  
-Tokenization  
-↓  
-Word Tokens  
-↓  
-Lexicon Matching  
-↓  
-Happiness Scores  
-↓  
-Average Score  
-↓  
-Final Output
-
-Example entries from the lexicon:
-
-| Word | Happiness Score |
-|-----|------|
-| love | 8.42 |
-| happy | 8.30 |
-| murder | 1.48 |
-
-Only tokens present in the lexicon contribute to the document’s happiness score.
-
-The computed scores were saved in the processed dataset:
-data/processed/imdb_reviews_scored.csv
-
-This dataset contains the original review text along with the calculated happiness_score for each document. These scores were used for the statistical analysis and visualizations presented in the following sections.
-
-
-## Sampling plan and results
-
-In this part, we created a sampling strategy, quantified uncertainty through boostrapping and made relevant plots to the sample to visualize happiness scores of positive and negative reviews and outgroups. Within our research, we ask whether the hedonometer can accurately identify positive and negative reviews by searching for special case reviews that use for example sarcasm.
-
-Sampling Plan
-We decided to sample the entire dataset for precise calculations. The dataset contains equal amount of training, testing, positive, and negative reviews - meaning it is already balanced. While boostrapping 1000 times, we calculated the positive and negative mean happiness score. Afterwards, we searched for number of positive and negative reviews which score higher than the mean of their counterpart category. 
-
-Key statistics from bootstrap analysis
-
-The Hedonometer distinguishes positive and negative reviews with a mean difference of 0.37 (95% CI: [0.36, 0.37]). Although the confidence intervals are narrower due to the bigger sample size, considering that the dataset consists of extremely negative and positive reviews, one would assume the mean difference of these categories to be bigger. This leads us to reflect the appropriateness of using hedonometer as a method.
-
-![Bootstrap Distributions](figures/boostrap_distributions.png)
-
-In total there were 3299 negative reviews found, which scored higher in happiness than the positive mean, making up 13.2% of all negative reviews. Regarding positive reviews, there are 3421 found scoring in happiness lower than the negative mean, making up 13.7% of all positive reviews. The reason for such results could be due to the reviewer's vocabulary, particularly use of sarcasm or overly expressive language. 
-
-![Suspicious Reviews Scatter](figures/suspicious_reviews_scatter.png)
-
-## Suspicious Positive Reviews Word Cloud
-![Word Cloud](figures/suspicious_positive_wordcloud.png)
-
-This word cloud highlights the most frequent words in reviews labeled as positive but associated with relatively low happiness scores according to the hedonometer. The prominence of terms such as “good,” “character,” “story,” and “show” suggests that these reviews are not strongly enthusiastic. Instead, they tend to rely on neutral, descriptive, or mixed evaluative language rather than clearly positive expressions.
-This pattern indicates a mismatch between sentiment labels and linguistic tone. Although these reviews are classified as positive overall, their lexical content often reflects only moderate positivity or includes critical elements. This supports the idea that the hedonometer, as a word-based measure, may interpret such reviews as less positive due to the absence of strongly positive vocabulary.
-
-## Suspicious Negative Reviews Word Cloud
-![Word Cloud](figures/suspicious_negative_wordcloud.png)
-
-This word cloud shows the most frequent words in reviews labeled as negative but associated with relatively high happiness scores. In contrast to the positive mismatch case, these reviews contain a noticeable presence of more neutral or even positive words, which raises their overall happiness score despite being labeled as negative.
-The appearance of such words suggests that negative reviews can still include elements of praise, balanced evaluation, or mixed sentiment. For example, reviewers may acknowledge strengths such as acting, visuals, or specific scenes while still expressing an overall negative opinion. 
-This pattern highlights a key limitation of the hedonometer: because it evaluates sentiment at the word level, it may fail to capture the overall intention of the review. As a result, reviews with mixed or nuanced language can be misinterpreted as more positive than they actually are.
-
-### Comparison of Suspicious Positive and Negative Reviews
-
-Comparing the two word clouds reveals an important asymmetry in how mismatches occur. Suspicious positive reviews tend to rely heavily on neutral and descriptive language, lacking strong positive vocabulary. In contrast, suspicious negative reviews more often include a mixture of negative and positive expressions, where elements of praise coexist with criticism.
-This suggests that mismatches do not arise in the same way for both categories. For positive reviews, the gap is primarily driven by weak or moderate positivity, while for negative reviews, it is driven by the presence of mixed or partially positive language. 
-Overall, this comparison highlights that the hedonometer is particularly sensitive to the presence or absence of strongly valenced words, but struggles to capture nuanced, context-dependent sentiment that emerges at the sentence or discourse level.
-
-## Data visualization
-
-To answer our research question, we created a boxplot to have a better data visualization for interpretation. It illustrates a comparison of the distribution of the happiness scores across IMDb reviews. First, the Hedonometer is accurate as you can see that the median happiness score for positive reviews (around 6.2) is higher than negative reviews (around 5.8). This shows that positive reviews have words with higher happiness value. 
-
-Second, the boxplot highlights important limitations in the Hedonometer's accuracy for this dataset. Because of the overlap in the interquartile ranges, happiness scores, such as 6, could belong to negative or positive reviews. This overlap leads to ambiguous sentiment classifications. 
-
-Finally, the numerous outliers in boxplot present the inconsistency between IMBd sentiment labels and Hedonometer scores. For instance, a positive review has a low happiness score, which is below 4. The unusual pattern demonstrates that the Hedonometer can misinterpret sentiment in some contexts. 
-
-
-<img width="682" height="552" alt="image" src="https://github.com/user-attachments/assets/a951e67b-95c2-4413-8aab-9b42661b7273" />
-
-
-Distribution of Hedonometer Scores for Positive and Negative reviews.
-
-
+The Measurement Pipeline
+Use this in the Hedonometer Measurement Method section to show how you turned text into happiness scores.
+The Inference & Visualization Pipeline
+Use this in the Sampling Plan and Results section to show how you got your final statistics and the boxplot.
 
 
 
