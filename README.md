@@ -49,7 +49,7 @@ IMDb Large Movie Review Dataset
 
 The project used the IMDb Movie Review Dataset, consisting of 50,000 reviews in total. To establish clear sentiment labels, Maas et al. (2011) filtered the data based on the users’ original out of 10 star ratings. A review was labeled negative if it scored 4 or lower, and positive if it scored 7 or higher. There is no neutral review in the dataset. The data is evenly split into 25,000 training reviews and 25,000 testing reviews.
 
-The IMDb dataset is suitable for this research because it provides clear sentiment labels for each user’s review. These labels can be used as a benchmark to evaluate if the Hedonometer happiness scores can produce similar sentiment interpretations. Movie reviews have complex language, such as praise or sarcasm. As the Hedonometer calculates happiness based on isolated word scores, the expressive language in movie reviews helps to examine the ability of the Hedonometer. Then we can identify and analyze the gap between the word average happiness and the sentiment label. 
+The IMDb dataset is suitable for this research because it provides clear sentiment labels for each user’s review. These labels can be used as a benchmark to evaluate if the Hedonometer happiness scores can produce similar sentiment interpretations. As the Hedonometer calculates happiness based on isolated word scores, the complex language in movie reviews helps to examine the ability of the Hedonometer. Then we can identify and analyze the gap between the word average happiness and the sentiment label. 
 
 
 3. Method
