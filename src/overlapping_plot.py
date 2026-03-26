@@ -78,33 +78,39 @@ print(f"  95% CI: [{pos_ci_sus[0]:.0f}, {pos_ci_sus[1]:.0f}]")
 
 # Simple overlapping histograms
 fig, ax = plt.subplots(figsize=(10, 6))
-pos_means_array = np.array(pos_means)
-neg_means_array = np.array(neg_means)
 
-# Plot histograms with transparency
-ax.hist(pos_means_array, bins=30, color='green', alpha=0.6, edgecolor='black', 
-        density=True, label=f'Positive Reviews (mean = {pos_mean_est:.3f})')
-ax.hist(neg_means_array, bins=30, color='red', alpha=0.6, edgecolor='black', 
-        density=True, label=f'Negative Reviews (mean = {neg_mean_est:.3f})')
+# Plot both histograms
+ax.hist(pos_means, bins=30, align="mid", color='green', alpha=0.6, edgecolor='black', 
+        label='Positive Reviews')
+ax.hist(neg_means, bins=30, align="mid", color='red', alpha=0.6, edgecolor='black', 
+        label='Negative Reviews')
 
-# Add mean lines
+# Add vertical lines for means
 ax.axvline(pos_mean_est, color='darkgreen', linewidth=2, linestyle='-', 
-           label=f'Positive Mean: {pos_mean_est:.3f}')
+           label=f'Positive Mean: {pos_mean_est:.2f}')
 ax.axvline(neg_mean_est, color='darkred', linewidth=2, linestyle='-', 
-           label=f'Negative Mean: {neg_mean_est:.3f}')
+           label=f'Negative Mean: {neg_mean_est:.2f}')
 
-# Add difference annotation
-diff = pos_mean_est - neg_mean_est
-ax.text(0.95, 0.95, f'Difference: {diff:.3f}', 
-        transform=ax.transAxes, ha='right', va='top',
-        bbox=dict(boxstyle='round', facecolor='white', alpha=0.8))
+# Add vertical lines for confidence intervals
+ax.axvline(pos_ci[0], color='green', linewidth=1.5, linestyle='--', alpha=0.7)
+ax.axvline(pos_ci[1], color='green', linewidth=1.5, linestyle='--', alpha=0.7)
+ax.axvline(neg_ci[0], color='red', linewidth=1.5, linestyle='--', alpha=0.7)
+ax.axvline(neg_ci[1], color='red', linewidth=1.5, linestyle='--', alpha=0.7)
 
-ax.set_xlabel('Mean Happiness Score')
-ax.set_ylabel('Density')
-ax.set_title('Distribution of Mean Happiness Scores: Positive vs Negative Reviews')
-ax.legend()
+# Fill confidence interval regions
+ylim = ax.get_ylim()
+ax.fill_betweenx([0, ylim[1]], pos_ci[0], pos_ci[1], 
+                  alpha=0.1, color='green', label='Positive 95% CI')
+ax.fill_betweenx([0, ylim[1]], neg_ci[0], neg_ci[1], 
+                  alpha=0.1, color='red', label='Negative 95% CI')
+
+# Add labels and title
+ax.set_xlabel('Mean Happiness Score', fontsize=12)
+ax.set_ylabel('Frequency', fontsize=12)
+ax.set_title('Bootstrap Distribution of Mean Happiness Scores\nPositive vs Negative Reviews', fontsize=14)
+ax.legend(loc='upper right')
 ax.grid(True, alpha=0.3)
 
 plt.tight_layout()
-plt.savefig('figures/bootstrap_means_overlap_simple.png', dpi=100)
+plt.savefig('figures/combined_histogram_with_ci.png', dpi=100)
 plt.show()

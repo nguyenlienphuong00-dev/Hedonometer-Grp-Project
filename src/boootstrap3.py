@@ -227,5 +227,5 @@ ax.legend(loc='upper right')
 ax.grid(True, alpha=0.3)
 
 plt.tight_layout()
-plt.savefig('figures/sample.png', dpi=100)
+plt.savefig('figures/sample.png', dpi = 100)
 plt.show()
