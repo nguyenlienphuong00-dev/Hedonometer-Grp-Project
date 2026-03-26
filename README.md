@@ -24,25 +24,32 @@ Maas, Andrew. “Sentiment Analysis,” n.d. https://ai.stanford.edu/~amaas/data
 
 Application and Suitability By comparing the lexicon's average happiness scores against these ground-truth movie ratings, we aimed to identify where the tool succeeds as a so called remote sensor of sentiment and where linguistic complexity, such as sarcasm or descriptive prose, causes the bag-of-words approach to fail. The IMDb dataset is suitable for this research because it provides clear sentiment labels for each user’s review. These labels can be used as a benchmark to evaluate if the Hedonometer happiness scores can produce similar sentiment interpretations. As the Hedonometer calculates happiness based on isolated word scores, the complex language, such as sarcasm, in movie reviews helps to examine the accuracy of the Hedonometer. Then we can identify and analyze linguistic patterns that appear in reviews where the word average happiness and the sentiment label do not match.
 Data acquisition pipeline:
+<img width="582" height="77" alt="Screenshot 2026-03-27 at 00 05 13" src="https://github.com/user-attachments/assets/d0daf50b-9c3e-4ac1-9b40-031947bf8127" />
+
 
 Research Question: How well do Hedonometer happiness scores align with IMDb sentiment labels, and what linguistic patterns characterize reviews where the two measures disagree?
 
 Technical pipeline:
 Data provenance:
+<img width="467" height="70" alt="Screenshot 2026-03-27 at 00 05 59" src="https://github.com/user-attachments/assets/a5c0cc60-ed08-44aa-bd66-84cb2204b435" />
 
 Measurement:
+<img width="499" height="70" alt="Screenshot 2026-03-27 at 00 06 13" src="https://github.com/user-attachments/assets/619f953d-f0f1-4af6-85b5-f9afd3a2124d" />
 
 Inference: 
 
 Tokenization and Word Processing
 
 To prepare the IMDb reviews for analysis, we first tokenized the text into individual words. Each review was converted to lowercase so that words like “Good” and “good” are treated the same. We then used a regular expression to extract only alphabetical words, removing punctuation and other symbols.
+<img width="549" height="61" alt="Screenshot 2026-03-27 at 00 06 29" src="https://github.com/user-attachments/assets/18c9d1c4-c17f-4f44-a392-8c06e9a957cf" />
+
 
 For example, the sentence:
 - "This movie was amazing!"
 becomes:
 - ["this", "movie", "was", "amazing"]
 This step is important because it standardizes the text and allows us to match words consistently with the sentiment lexicon.
+<img width="549" height="57" alt="Screenshot 2026-03-27 at 00 07 04" src="https://github.com/user-attachments/assets/0348d39e-f029-4e9e-b36d-824a27b4ab2e" />
 
 
 Filtering and Cleaning Words
@@ -116,8 +123,8 @@ WORDCLOUD
 To take a closer look at the content of both types of suspicious reviews, we created a word cloud from 1,000 randomly sampled reviews that scored either above the mean of negative reviews (if positive) or below the mean of positive reviews (if negative).
 Comparisons of suspicious positive & negative reviews: (replace this one with old one in the github)
 Comparing the two word clouds shows a clear difference in how mismatches happen. Suspicious positive reviews mostly use neutral and descriptive words and do not include many strongly positive terms. In contrast, suspicious negative reviews often mix negative and positive language, where some praise appears together with criticism. This means that mismatches occur in different ways for the two groups. For positive reviews, mismatches happen in different ways for the two groups. For positive reviews, mismatches are mainly caused by weak or driven by weak or limited positive language. For negative reviews, they are caused by the use of mixed or partly positive expressions. Overall, this comparison shows that the hedonometer reacts strongly to clearly positive or negative words, but it does not capture more subtle meanings that depend on context or sentence structure.
-
-
+<img width="1200" height="600" alt="suspicious_positive_wordcloud" src="https://github.com/user-attachments/assets/5d755193-15c5-408c-aa08-4c811b71ed45" />
+<img width="1200" height="600" alt="suspicious_negative_wordcloud" src="https://github.com/user-attachments/assets/d65b865a-3815-4f3f-a4c4-4e731967a45e" />
 
 
 Limitations
