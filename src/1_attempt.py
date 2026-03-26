@@ -87,99 +87,40 @@ corpus.to_csv("data/processed/imdb_reviews_scored.csv", index=False)
 print("Hedonometer scoring completed.")
 
 import pandas as pd
+import matplotlib.pyplot as plt
+from collections import Counter
+import re
 
-# load scored IMDb dataset
+# load FULL dataset
 df = pd.read_csv("data/processed/imdb_reviews_scored.csv")
 
-print("Columns:", df.columns)
+def tokenize(text):
+    text = text.lower()
+    return re.findall(r"[a-z']+", text)
 
-# -------- GRAPH 1 (you already have) --------
-# small dataset barplot
+stopwords = {"the", "and", "is", "was", "to", "a", "of", "it", "in", "that"}
 
-small_df = df.sample(n=100, random_state=42)
+all_words = []
 
-# save it
-small_df.to_csv("data/processed/imdb_small.csv", index=False)
+for review in df["review"]:
+    tokens = tokenize(review)
+    tokens = [w for w in tokens if w not in stopwords and len(w) > 2]
+    all_words.extend(tokens)
 
-print("\nSmall dataset created:", len(small_df))
+word_counts = Counter(all_words)
 
-# compare means
-print("\nMean comparison:")
-print("Full:", df["happiness_score"].mean())
-print("Small:", small_df["happiness_score"].mean())
+top_words = word_counts.most_common(10)
 
-# compare positive vs negative
-print("\nBy label:")
-print(small_df.groupby("sentiment")["happiness_score"].mean())
+words = [w for w, c in top_words]
+counts = [c for w, c in top_words]
 
-import matplotlib.pyplot as plt
+plt.bar(words, counts)
 
-# calculate means by sentiment
-means = small_df.groupby("sentiment")["happiness_score"].mean()
+plt.title("Top 10 Most Frequent Words (IMDb Dataset)")
+plt.xlabel("Words")
+plt.ylabel("Frequency")
 
-# plot
-means.plot(kind="bar")
-
-plt.title("Average Happiness Score by Review Sentiment (Small Dataset)")
-plt.xlabel("Sentiment")
-plt.ylabel("Average Happiness Score")
-
-plt.tight_layout()
-plt.savefig("figures/smaller_dataset_barplot.png")
-plt.show()
-
-#-----
-small_df = df.sample(n=1000, random_state=42)
-
-# save it
-small_df.to_csv("data/processed/imdb_small.csv", index=False)
-
-print("\nSmall dataset created:", len(small_df))
-
-# compare means
-print("\nMean comparison:")
-print("Full:", df["happiness_score"].mean())
-print("Small:", small_df["happiness_score"].mean())
-
-# compare positive vs negative
-print("\nBy label:")
-print(small_df.groupby("sentiment")["happiness_score"].mean())
-
-import matplotlib.pyplot as plt
-
-# calculate means by sentiment
-means = small_df.groupby("sentiment")["happiness_score"].mean()
-
-# plot
-means.plot(kind="bar")
-
-plt.title("Average Happiness Score by Review Sentiment (Small Dataset)")
-plt.xlabel("Sentiment")
-plt.ylabel("Average Happiness Score")
-
-plt.tight_layout()
-plt.savefig("figures/small_dataset_barplot.png")
-plt.show()
-
-# -------- GRAPH 2 --------
-# FULL vs SMALL comparison plot
-full_means = df.groupby("sentiment")["happiness_score"].mean()
-small_means = small_df.groupby("sentiment")["happiness_score"].mean()
-
-import pandas as pd
-comparison = pd.DataFrame({
-    "Full Dataset": full_means,
-    "Small Dataset": small_means
-})
-
-comparison.plot(kind="bar")
-
-plt.title("Full vs Small Dataset: Happiness Scores by Sentiment")
-plt.xlabel("Sentiment")
-plt.ylabel("Average Happiness Score")
-
-plt.xticks(rotation=0)
+plt.xticks(rotation=45)
 plt.tight_layout()
 
-plt.savefig("figures/full_vs_small_comparison.png")
-# plt.show()
+plt.savefig("figures/top_words_barplot.png")
