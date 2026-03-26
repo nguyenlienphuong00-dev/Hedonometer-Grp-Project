@@ -90,9 +90,9 @@ n, bins, patches = axes[0].hist(pos_means_array, bins=30, align = 'mid', color='
 # Add vertical lines
 axes[0].axvline(pos_mean_est, color='darkgreen', linewidth=2, linestyle='-', 
                 label=f'Mean: {pos_mean_est:.3f}')
-axes[0].axvline(pos_ci[0], color='red', linestyle='--', linewidth=1.5, 
+axes[0].axvline(pos_ci[0], color='blue', linestyle='--', linewidth=1.5, 
                 label='95% CI')
-axes[0].axvline(pos_ci[1], color='red', linestyle='--', linewidth=1.5)
+axes[0].axvline(pos_ci[1], color='blue', linestyle='--', linewidth=1.5)
 
 # Get y-axis limits after histogram
 ylim = axes[0].get_ylim()
@@ -128,9 +128,9 @@ axes[1].grid(True, alpha=0.3)
 axes[2].hist(diffs, bins=30, color='purple', alpha=0.7, edgecolor='black')
 axes[2].axvline(diff_est, color='darkviolet', linewidth=2, linestyle='-', 
                 label=f'Diff: {diff_est:.3f}')
-axes[2].axvline(diff_ci[0], color='orange', linestyle='--', linewidth=1.5, 
+axes[2].axvline(diff_ci[0], color='blue', linestyle='--', linewidth=1.5, 
                 label=f'95% CI')
-axes[2].axvline(diff_ci[1], color='orange', linestyle='--', linewidth=1.5)
+axes[2].axvline(diff_ci[1], color='blue', linestyle='--', linewidth=1.5)
 axes[2].axvline(0, color='gray', linestyle=':', linewidth=1.5, alpha=0.5)
 ylim = axes[2].get_ylim()
 axes[2].fill_betweenx([0, ylim[1]], diff_ci[0], diff_ci[1], 
