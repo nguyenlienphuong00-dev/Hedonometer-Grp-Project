@@ -7,8 +7,8 @@ This project explores the labMT 1.0 dataset used to measure happiness in languag
 
 Research question: 
 
-To what extent do the Hedonometer happiness scores align with the IMDb sentiment labels, and what factors create the gap between them? 
-
+ How well do Hedonometer happiness scores align with IMDb sentiment labels, and what linguistic patterns characterize reviews where the two measures disagree?
+ 
 
 In assignment 1, we focused on labMT 1.0 as an object of study. For this project, we used it as a measurement instrument to evaluate its performance in practice. We choose to apply Hedonometer to the Stanford IMDb Large Movie Review Dataset, which contains 50,000 movie reviews written by real people and were already labeled as either “Positive” or “Negative”. 
 
