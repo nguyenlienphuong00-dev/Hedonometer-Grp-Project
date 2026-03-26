@@ -61,6 +61,8 @@ Focusing on Emotional Words
 To make the analysis more meaningful, we focused only on words with strong emotional content. Using the labMT scores, we kept words with happiness values ≤ 4 (negative) or ≥ 6 (positive), and excluded neutral words.
 This helped remove generic or neutral terms and highlight words that actually express sentiment.
 
+<img width="1000" height="800" alt="suspicious_positive_words_clean" src="https://github.com/user-attachments/assets/6d8e31bc-84f6-4e6c-aace-7418247213ad" />
+<img width="1000" height="800" alt="suspicious_negative_words_clean" src="https://github.com/user-attachments/assets/9d1aad75-4b46-4900-9f94-64d0e5fb5c3a" />
 
 
 Word Frequency Analysis
@@ -72,14 +74,20 @@ This approach provides a clearer view of the emotional language used in IMDb rev
 Sampling Plan and Results
 The dataset contains equal amounts of training, testing, positive, and negative reviews. The train/test category is present for model training, which is why we decided to not work with this category and view the dataset purely from sentiment and happiness score aspects. Sampling was done in these parts of the repository:
 
+<img width="1186" height="429" alt="Screenshot 2026-03-26 at 23 47 59" src="https://github.com/user-attachments/assets/54fdd04e-4b1f-476c-9a99-99d4009ab02e" />
+
+
 For our research, we want to make inferences on a population, which we defined as the IMDb dataset. We did not choose all reviews on the internet as our population, because our dataset does not include ‘neutrally sentiment’ reviews and our research question draws on reviews in the IMDb dataset, which were by humans chosen to be sentimentally strong.
+<img width="1004" height="384" alt="Screenshot 2026-03-26 at 23 48 08" src="https://github.com/user-attachments/assets/d51b91d3-f801-43e4-9140-8ab603073a82" />
+
 
 Via this pathway, we want to show our approach. To calculate the mean score of positive and negative reviews by using bootstrap, we resampled sample size of n=1000 one thousand times with replacement. Within the bootstrap we also investigated whether "rule-breaking" reviews exist - negative reviews with happiness scores above the positive mean, and positive reviews with happiness scores below the negative mean. 
 
-
+<img width="1500" height="500" alt="bootstrap_means_histograms" src="https://github.com/user-attachments/assets/9ff016c6-06c1-4aa0-ac3b-3c1ce4101ef4" />
 	Mean happiness scores of negative/positive reviews and the difference
 
 We can be 95% confident that positive reviews score on average 6.116 [6.095, 6.136]while negative 5.750 [[5.728, 5.772]. For clarity purposes, the main results are visualized in a table:
+<img width="1014" height="217" alt="Screenshot 2026-03-26 at 23 48 18" src="https://github.com/user-attachments/assets/7741753e-9628-435f-9941-2bb5a799de1a" />
 
 
 
@@ -88,8 +96,7 @@ The standard deviations of mean positive and negative score and difference moves
 SUSPICIOUS REVIEWS
 Regarding rule-breaking reviews, our plots showcase an estimate mean of 132.6 suspicious negative and 136.9 suspicious negative reviews. The suspicious reviews are thus consistently present.
 
-
-
+<img width="1200" height="500" alt="suspicious_counts_histograms" src="https://github.com/user-attachments/assets/72b25074-821d-4084-b968-cfa24d0decd1" />
 
 
 
