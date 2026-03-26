@@ -127,7 +127,7 @@ Roles
 
 Mila: readme
 Ran: tokenization, analyzing suspicious reviews, interpreting limitations
-Grace:
+Grace: Word Cloud
 Quynh: Dataset clarification, interpretation of random sample and bootstrapping distribution histogram.
 Petra: Sampling and Inference plots
 
