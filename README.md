@@ -1,24 +1,7 @@
 
 # Hedonometer-Grp-Project
 
-1. Happiness According to Mechanical Turks: Exploring the Hedonometer Dataset
-
-This project explores the labMT 1.0 dataset used to measure happiness in English language. Using Python, we analyze the distribution of happiness scores, disagreement between raters, and differences in word usage across several text corpora such as Twitter, Google Books, the New York Times, and song lyrics. By combining quantitative analysis with qualitative interpretation, we examine how emotional meaning is reflected in everyday language.
-
-Research question: 
-
-How well do Hedonometer happiness scores align with IMDb sentiment labels, and what linguistic patterns characterize reviews where the two measures disagree?
-
-
-
-In assignment 1, we focused on labMT 1.0 as an object of study. For this project, we used it as a measurement instrument to evaluate its performance in practice. We choose to apply Hedonometer to the Stanford IMDb Large Movie Review Dataset, which contains 50,000 movie reviews written by real people and were already labeled as either “Positive” or “Negative”. 
-
-We chose this research question for two main reasons. First, movie reviews present a linguistic context that is difficult to interpret with lexical methods. The Hedonometer uses a standard bag of words approach, calculating happiness by looking at words individually. However, people tend to use complex language in their reviews, such as sarcastic words and contextual meanings. This can lead to the difference between the Hedonometer score and the actual sentiment expressed by reviewers. 
-
-Second, moving beyond simply focusing on the accuracy of the Hedonometer, this project aims to examine how well Hedonometer happiness scores align with IMDb sentiment labels. Moreover, we analyze the linguistic patterns that appear in reviews where the two measures disagree. By using statistical methods and data visualization, we highlight both strengths and limitations of dictionary-based sentiment tools in social practices. 
-  
-
-
+1. Happiness According to Mechanical Turks: Exploring the Hedonometer DatasetThis project explores the labMT 1.0 dataset used to measure happiness in language. Using Python, we analyze the distribution of happiness scores, disagreement between raters, and differences in word usage across several text corpora such as Twitter, Google Books, the New York Times, and song lyrics. By combining quantitative analysis with qualitative interpretation, we examine how emotional meaning is reflected in everyday language.
 
 2. Dataset and data dictionary
 
@@ -44,17 +27,6 @@ The least happiness containing words are connotated with death, which has its ow
 
 Most of the top ten 'happiness' words are unarguably ones we would expect. Interestingly, laughter tops the word happiness itself, perhaps because of it being an act embodying the feeling, affording us to give it a material reality. 
 The least happiness containing words are connotated with death, which has its own happiness score. Interestingly, suicide ranks higher in negativity than other forms/directions of killing. Personally, I also understand that rape is ranked to be more negative than acts of killing due to its gruesome nature.
-
-
-IMDb Large Movie Review Dataset
-
-
-The project used the IMDB Movie Review Dataset, consisting of 50,000 reviews in total. To establish clear sentiment labels, Maas et al. (2011) filtered the data based on the users’ original out of 10 star ratings. A review was labeled negative if it scored 4 or lower, and positive if it scored 7 or higher. There is no neutral review in the dataset. The data is split into 25,000 training reviews and 25,000 testing reviews.
-
-The IMDb dataset is suitable for this research because it provides clear sentiment labels for each user’s review. These labels can be used as a benchmark to evaluate if the Hedonometer happiness scores can produce similar sentiment interpretations. Movie reviews have complex language, such as praise or sarcasm. As the Hedonometer calculates happiness based on isolated word scores, the expressive language in movie reviews helps to examine the accuracy of the Hedonometer. Then we can identify and analyze linguistic patterns that appear in reviews where the word average happiness and the sentiment label do not match.
-
- 
-
 
 3. Method
 
@@ -250,36 +222,49 @@ Total number of reviews: 50,000
 
 ## Tokenization & Sentiment Pipeline
 
+Tokenization
 
-Raw Review  
-↓  
-Tokenization  
-↓  
-Word Tokens  
-↓  
-Lexicon Matching  
-↓  
-Happiness Scores  
-↓  
-Average Score  
-↓  
-Final Output
+Each review was converted to lowercase and split into individual words using a regular expression. This ensures consistent matching with the labMT lexicon.
 
-Example entries from the lexicon:
+Sentiment Scoring
 
-| Word | Happiness Score |
-|-----|------|
-| love | 8.42 |
-| happy | 8.30 |
-| murder | 1.48 |
+Each token was matched with the labMT dataset. If a word was found, its happiness score was used. Neutral words (scores between 4 and 6) were excluded to reduce noise. The final score for each review is the average of its word scores.
 
-Only tokens present in the lexicon contribute to the document’s happiness score.
+Small Dataset Analysis
 
-The computed scores were saved in the processed dataset:
-data/processed/imdb_reviews_scored.csv
+To test whether dataset size affects results, I created smaller samples of the dataset (1000 and 100 reviews) and compared them to the full dataset.
 
-This dataset contains the original review text along with the calculated happiness_score for each document. These scores were used for the statistical analysis and visualizations presented in the following sections.
 
+1. Positive vs Negative Reviews (Small Dataset)
+
+This graph shows that positive reviews have higher average happiness scores than negative reviews. This suggests that the hedonometer is able to distinguish between sentiment categories.
+
+2. Full vs Small Dataset Comparison
+
+The results from the full dataset and the smaller sample are almost identical. This indicates that reducing the dataset size does not significantly affect the overall results.
+
+3. Very Small Dataset (100 Reviews)
+
+Even with only 100 reviews, the same pattern remains: positive reviews still score higher than negative reviews. This suggests that the hedonometer is robust even with very small datasets, although smaller samples may introduce more variability.
+
+Interpretation
+
+Across all experiments, positive reviews consistently have higher happiness scores than negative reviews. This confirms that the hedonometer can capture general sentiment differences.
+
+At the same time, the difference between the two groups is relatively small, and there is overlap in scores. This shows that the method cannot fully capture nuanced language, such as sarcasm or context.
+
+Critical Reflection
+
+The dataset was constructed by selecting the most frequent words from different corpora (Twitter, Google Books, New York Times, and lyrics) and assigning them happiness scores using human ratings from Mechanical Turk.
+
+This design makes the dataset useful for capturing general language trends, but it also introduces limitations:
+
+It ignores context (bag-of-words approach)
+Word meanings may change over time
+Neutral words are removed, which may simplify language too much
+Cultural differences affect how words are rated
+
+As a result, the hedonometer works best for large-scale trends rather than precise sentiment detection.
 
 ## Sampling plan and results
 
@@ -297,11 +282,6 @@ The Hedonometer distinguishes positive and negative reviews with a mean differen
 In total there were 3299 negative reviews found, which scored higher in happiness than the positive mean, making up 13.2% of all negative reviews. Regarding positive reviews, there are 3421 found scoring in happiness lower than the negative mean, making up 13.7% of all positive reviews. The reason for such results could be due to the reviewer's vocabulary, particularly use of sarcasm or overly expressive language. 
 
 ![Suspicious Reviews Scatter](figures/suspicious_reviews_scatter.png)
-
-## Suspicious Positive Reviews Word Cloud
-![Word Cloud](figures/suspicious_positive_wordcloud.png)
-
-This word cloud highlights the most frequent words in reviews labeled as positive but associated with relatively low happiness scores according to the hedonometer. The prominence of terms such as “good,” “character,” “story,” and “show” suggests that these reviews are not strongly enthusiastic. Instead, they tend to rely on neutral, descriptive, or mixed evaluative language. This pattern indicates a mismatch between sentiment labels and linguistic tone, where reviews can be classified as positive while still containing critical, ambiguous, or only moderately positive expressions.
 
 ## Data visualization
 
