@@ -52,7 +52,8 @@ For example, the sentence:
 becomes:
 - ["this", "movie", "was", "amazing"]
 This step is important because it standardizes the text and allows us to match words consistently with the sentiment lexicon.
-<img width="549" height="57" alt="Screenshot 2026-03-27 at 00 07 04" src="https://github.com/user-attachments/assets/0348d39e-f029-4e9e-b36d-824a27b4ab2e" />
+![pipeline 5](https://github.com/user-attachments/assets/7ed1d8df-4494-4595-89fd-453f74ce8f3c)
+
 
 
 Filtering and Cleaning Words
