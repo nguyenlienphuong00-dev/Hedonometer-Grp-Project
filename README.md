@@ -97,6 +97,7 @@ Originally, we planned on combining the positive and negative mean distribution 
 
 In spite of the miscalculation, we can observe in the combined mean distribution a clear and significant divergence between two sentiment categories with zero overlap, including the clear distinction of the confidence intervals. This demonstrates that positive reviews score higher on the Hedonometer than negative reviews. As a result, the sentiment labels match with the average happiness score. It can be seen that the Hedonometer is a powerful tool for measuring massive datasets.
 
+<img width="1200" height="800" alt="image" src="https://github.com/user-attachments/assets/cb986b16-784b-475e-b135-f46b5ad9d80a" />
 
 
 However, when we run a close-up sample of 1,000 reviews, a different pattern emerges. It can be seen that positive and negative reviews heavily overlap. Significantly, there are some negative reviews that score higher than the positive reviews and vice versa. The Hedonometer scores do not align with their sentiment labels, resulting in heavy overlap between average happiness score and sentiment labels.
