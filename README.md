@@ -24,24 +24,27 @@ Maas, Andrew. “Sentiment Analysis,” n.d. https://ai.stanford.edu/~amaas/data
 
 Application and Suitability By comparing the lexicon's average happiness scores against these ground-truth movie ratings, we aimed to identify where the tool succeeds as a so called remote sensor of sentiment and where linguistic complexity, such as sarcasm or descriptive prose, causes the bag-of-words approach to fail. The IMDb dataset is suitable for this research because it provides clear sentiment labels for each user’s review. These labels can be used as a benchmark to evaluate if the Hedonometer happiness scores can produce similar sentiment interpretations. As the Hedonometer calculates happiness based on isolated word scores, the complex language, such as sarcasm, in movie reviews helps to examine the accuracy of the Hedonometer. Then we can identify and analyze linguistic patterns that appear in reviews where the word average happiness and the sentiment label do not match.
 Data acquisition pipeline:
-<img width="582" height="77" alt="Screenshot 2026-03-27 at 00 05 13" src="https://github.com/user-attachments/assets/d0daf50b-9c3e-4ac1-9b40-031947bf8127" />
+![pipeline 1](https://github.com/user-attachments/assets/cbf1aa2d-6a3c-48dd-8ae2-d60d2caf4851)
+
+
 
 
 Research Question: How well do Hedonometer happiness scores align with IMDb sentiment labels, and what linguistic patterns characterize reviews where the two measures disagree?
 
 Technical pipeline:
 Data provenance:
-<img width="467" height="70" alt="Screenshot 2026-03-27 at 00 05 59" src="https://github.com/user-attachments/assets/a5c0cc60-ed08-44aa-bd66-84cb2204b435" />
+![pipeline 2](https://github.com/user-attachments/assets/f3ebe937-4d97-46bd-9aa5-02b25dfeb46f)
+
 
 Measurement:
-<img width="499" height="70" alt="Screenshot 2026-03-27 at 00 06 13" src="https://github.com/user-attachments/assets/619f953d-f0f1-4af6-85b5-f9afd3a2124d" />
+![pipeline 3](https://github.com/user-attachments/assets/0caa6f31-1ddc-4378-acd6-e406245a8ea9)
 
-Inference: 
+
 
 Tokenization and Word Processing
 
 To prepare the IMDb reviews for analysis, we first tokenized the text into individual words. Each review was converted to lowercase so that words like “Good” and “good” are treated the same. We then used a regular expression to extract only alphabetical words, removing punctuation and other symbols.
-<img width="549" height="61" alt="Screenshot 2026-03-27 at 00 06 29" src="https://github.com/user-attachments/assets/18c9d1c4-c17f-4f44-a392-8c06e9a957cf" />
+
 
 
 For example, the sentence:
