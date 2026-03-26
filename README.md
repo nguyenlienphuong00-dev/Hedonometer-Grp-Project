@@ -54,6 +54,8 @@ Removed standard stopwords such as “the,” “and,” and “have”
 Removed additional high-frequency but uninformative words like “one,” “very,” and “people”
 Excluded domain-specific words such as “movie” and “film,” which are common in reviews but do not reflect sentiment
 
+<img width="1000" height="800" alt="suspicious_positive_words" src="https://github.com/user-attachments/assets/ecdfb773-e3af-446c-a0d2-379d2b88e340" />
+<img width="1000" height="800" alt="suspicious_negative_words" src="https://github.com/user-attachments/assets/22a91438-e01e-4752-b6c9-d2c430fc04ef" />
 
 Focusing on Emotional Words
 To make the analysis more meaningful, we focused only on words with strong emotional content. Using the labMT scores, we kept words with happiness values ≤ 4 (negative) or ≥ 6 (positive), and excluded neutral words.
